@@ -1,0 +1,165 @@
+.effect4 {
+  font-family: "Alfa Slab One", "cursive";
+}
+/*****Circle*****/
+// body {
+//   background: linear-gradient(130deg, #333, #000, #333);
+//   color: white;
+//   display: flex;
+//   height: 100vh;
+//   width: 100vw;
+// }
+
+// .wrapper {
+//   height: 100%;
+//   margin: auto;
+//   max-height: 40rem;
+//   max-width: 40rem;
+//   position: relative;
+//   width: 100%;
+// }
+
+// svg {
+//   display: block;
+//   fill: white;
+//   font-family: monospace;
+//   font-weight: bold;
+//   height: 100%;
+//   margin: auto;
+//   text-transform: uppercase;
+//   width: 100%;
+// }
+
+// text {
+//   letter-spacing: 1rem;
+// }
+/********************/
+
+@font-face {
+  font-family: Agency;
+  src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/agency-fb-bold.woff);
+}
+body {
+  font-family: Avenir, sans-serif;
+  margin: 0;
+}
+
+#marquee {
+  margin-top: 3rem;
+  perspective: 500px;
+  font-size: 0;
+  font-family: Agency, sans-serif;
+}
+#marquee div {
+  display: inline;
+  height: 12rem;
+  width: 20rem;
+  position: relative;
+  // top: 5px;
+  left: 250px;
+}
+
+#marquee div:first-of-type {
+  background: #e5233e;
+  transform-origin: top right;
+  transform: rotateY(-40deg);
+  color: #fff;
+}
+#marquee div:last-of-type {
+  background: #b31e31;
+  transform-origin: top left;
+  transform: rotateY(45deg);
+  color: #f8c9d9;
+}
+#marquee div {
+  font-size: 11mm;
+  overflow: hidden;
+}
+#marquee div span {
+  position: absolute;
+  width: 400%;
+  line-height: 1.4;
+}
+#marquee div:first-of-type span {
+  transform: translateX(40rem);
+  animation: leftcrawl 14s linear infinite;
+  text-shadow: 4px 0px 4px rgba(0, 0, 0, 0.3);
+}
+#marquee div:last-of-type span {
+  transform: translateX(20rem);
+  animation: rightcrawl 14s linear infinite;
+}
+
+@keyframes leftcrawl {
+  to {
+    transform: translateX(-100rem);
+  }
+}
+@keyframes rightcrawl {
+  to {
+    transform: translateX(-130rem);
+  }
+}
+
+/*************** Word Interaction ***************/
+/* Google Webfonts */
+@import url(https://fonts.googleapis.com/css?family=Oswald);
+
+/* Basic Styles */
+html {
+  margin: 1em 20%;
+  color: #0a0a0a;
+}
+
+#atag_01,
+#atag_02,
+#atag_03 {
+  color: #ededed;
+  // position: relative;
+  // top: 10px;
+  // left: 50px;
+  font-family: Oswald;
+  font-size: 30mm;
+  line-height: 0.5;
+  transition: 0.5s all ease;
+  text-transform: uppercase;
+  text-decoration: none;
+  position: relative;
+  top: 30px;
+  text-align: center;
+  padding-top: 0.4em;
+  text-shadow: 
+    /* Color 1 */ 1px 1px #61b4de, 2px 2px #61b4de,
+    3px 3px #61b4de, 4px 4px #61b4de, 5px 5px #61b4de,
+    /* Color 2 */ 6px 6px #91c467, 7px 7px #91c467, 8px 8px #91c467,
+    9px 9px #91c467, 10px 10px #91c467, /* Color 3 */ 11px 11px #f3a14b,
+    12px 12px #f3a14b, 13px 13px #f3a14b, 14px 14px #f3a14b, 15px 15px #f3a14b,
+    /* Color 4 */ 16px 16px #e84c50, 17px 17px #e84c50, 18px 18px #e84c50,
+    19px 19px #e84c50, 20px 20px #e84c50, /* Color 5 */ 21px 21px #4e5965,
+    22px 22px #4e5965, 23px 23px #4e5965, 24px 24px #4e5965, 25px 25px #4e5965;
+}
+
+/************************************************/
+
+canvas {
+}
+#neighbor_4 {
+  font-style: italic;
+  line-height: 0.9;
+  letter-spacing: -2px;
+  position: absolute;
+  bottom: 5%;
+  font-size: 90%;
+  //font-family: "Crimson Text", "sans serif";
+  color: black;
+  padding-right: 4%;
+  right: 13px;
+  animation: fadeIn 4s infinite alternate;
+  text-align: right;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+}

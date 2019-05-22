@@ -1,0 +1,84 @@
+// .effect1 {
+// }
+
+.b-canvas {
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+}
+
+h1 {
+  #title__bg {
+    position: relative;
+    font-family: "Chivo", sans-serif;
+    font-size: 60px;
+    line-height: normal;
+    color: #000000;
+    color: black;
+    display: inline;
+  }
+}
+
+// #title_bg {
+//   background-image: linear-gradient(180deg, transparent 0%, yellow 0);
+//   animation-name: indown;
+//   animation-duration: 5s;
+//   animation-fill-mode: both;
+//   // animation-iteration-count: infinite;r
+//   background-repeat: no-repeat;
+//   animation-timing-function: ease;
+//   display: inline;
+//   color: rgba(0, 0, 0, 0);
+//   background-size: 100% calc(100% - 2px);
+//   opacity: 0.5;
+// }
+
+// @keyframes indown {
+//   0% {
+//     background-size: 0% 0%;
+//   }
+//   100% {
+//     background-size: 100% calc(100% - 2px);
+//   }
+// }
+
+// #title__text {
+//   position: absolute;
+//   top: 0px;
+//   left: 0px;
+
+//   animation-name: slide-up;
+//   animation-duration: 3s;
+//   animation-fill-mode: both;
+//   transform-origin: top left;
+// }
+#neighbor_6 {
+  font-style: italic;
+  line-height: 0.9;
+  letter-spacing: -2px;
+  position: absolute;
+  bottom: 5%;
+  font-size: 90%;
+  //font-family: "Crimson Text", "sans serif";
+  color: black;
+  padding: 4%;
+  right: 13px;
+  animation: fadeIn 4s infinite alternate;
+  text-align: right;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+}
+
+#name_1 {
+  color: black;
+  font-weight: bold;
+  font-family: "Noto Sans", sans-serif;
+  text-transform: uppercase;
+  font-size: 120%;
+  line-height: 80%;
+  padding: 5%;
+}

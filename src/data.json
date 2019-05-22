@@ -1,0 +1,125 @@
+{
+  "main": "all",
+  "children": [
+    {
+      "city": "Pittsburgh",
+      "children": [
+        {
+          "neighbor": "Larimer",
+          "attendee": 3,
+          "names": ["james", "Lily", "Stark"],
+          "word": [
+            "fit",
+            "sold",
+            "raise",
+            "part",
+            "lemington",
+            "time",
+            "ensured",
+            "bakeries",
+            "century",
+            "urban"
+          ]
+        },
+        {
+          "neighbor": "bloomfield",
+          "attendee": 5,
+          "names": ["Harry", "Selly", "May", "Natsuki", "Mimi"],
+          "word": [
+            "jobs",
+            "1868",
+            "every",
+            "need",
+            "features",
+            "changing",
+            "abruzzi",
+            "local",
+            "seldom",
+            "2001"
+          ]
+        },
+        {
+          "neighbor": "Carrick",
+          "attendee": 4,
+          "names": ["Ron", "Hermione", "Fred", "Sawajaki"],
+          "word": [
+            "find",
+            "french",
+            "ethnic",
+            "suir",
+            "fellow",
+            "mart",
+            "saturday",
+            "near",
+            "stores",
+            "save"
+          ]
+        }
+      ]
+    },
+    {
+      "city": "New_York",
+      "children": [
+        {
+          "neighbor": "Rego Park",
+          "attendee": 1,
+          "names": ["jimmy"],
+          "word": [
+            "katz",
+            "lucky",
+            "malls",
+            "including",
+            "families",
+            "stores",
+            "takes",
+            "hills",
+            "better",
+            "fairs"
+          ]
+        },
+        {
+          "neighbor": "Briarwood",
+          "attendee": 7,
+          "names": [
+            "yuna",
+            "david",
+            "mike",
+            "Daisy",
+            "midori",
+            "Anna",
+            "Sabrina"
+          ],
+          "word": [
+            "surrounding",
+            "train",
+            "walking",
+            "consists",
+            "relatively",
+            "using",
+            "fun",
+            "reside",
+            "north",
+            "coming"
+          ]
+        },
+        {
+          "neighbor": "Murray",
+          "attendee": 2,
+          "names": ["Julia", "Nicolas"],
+          "word": [
+            "lot",
+            "hill",
+            "rent",
+            "security",
+            "bars",
+            "sirens",
+            "sense",
+            "often",
+            "change",
+            "grocery"
+          ]
+        }
+      ]
+    }
+  ]
+}

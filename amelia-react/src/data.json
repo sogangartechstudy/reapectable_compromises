@@ -1,0 +1,26 @@
+{
+      "main": "all",
+      "children": [
+        {"city":"Pittsburgh",
+         "children":[
+          {"neighbor": "polish_hill", "attendee": 10, "names":["james"] },
+          {"neighbor": "college_town", "attendee": 16 ,"names":["james"]},
+          {"neighbor": "prospect_hill", "attendee": 4 ,"names":["james"]}
+         ]},
+         {"city":"New_York",
+         "children":[
+          {"neighbor": "alignton", "attendee": 4,"names":["james"]},
+          {"neighbor": "kepsbay", "attendee": 1,"names":["james"] }
+         ]} ,
+         {"city":"New_York",
+         "children":[
+          {"neighbor": "lincon", "attendee": 4,"names":["james"]},
+          {"neighbor": "williamsburg", "attendee": 1,"names":["james"] },
+          {"neighbor": "downtown", "attendee": 8,"names":["james"]},
+          {"neighbor": "uptown", "attendee": 1,"names":["james"] }
+         ]}   
+      ]
+    }
+
+ 
+  

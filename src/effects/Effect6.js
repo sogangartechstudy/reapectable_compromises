@@ -26,12 +26,15 @@ export class Effect6 extends Component {
     };
 
     namepopup_6();
-    var phrase = c + " is " + "<< " + this.props.word[1] + " >>";
 
-    function drawCircle() {
+    for (var i = 0; i < this.props.word.length; i++) {}
+
+    var drawCircle = radius => {
+      const a1 = Math.floor(Math.random() * 9 + 1);
+      var phrase = "I know who you are.. You are,";
       var word = phrase.split("");
       var quantity = word.length;
-      var radius = 100;
+      //var radius = 100;
       var padding = 10;
       var radians = 3.14;
       var angle = 360 / (2 * Math.PI);
@@ -63,52 +66,39 @@ export class Effect6 extends Component {
 
         document.getElementById("test").appendChild(elm);
       }
-    }
-
-    drawCircle();
-    // //텍스트 데이터에서 뽑아와서 랜덤하게 적용
-    // const text_01 = document.getElementById("text_01");
-    // const text_02 = document.getElementById("text_02");
-    // const text_03 = document.getElementById("text_03");
-
-    // var num = () => {
-    //   const a1 = Math.floor(Math.random() * 9 + 1);
-    //   const a2 = Math.floor(Math.random() * 9 + 1);
-    //   const a3 = Math.floor(Math.random() * 9 + 1);
-    //   text_01.innerHTML = this.props.word[a1] + ",";
-    //   text_02.innerHTML = this.props.word[a2] + ",";
-    //   text_03.innerHTML = this.props.word[a3] + ",";
-    // };
-
+    };
     var Because = () => {
       var a = ".... because you live in " + "'" + this.props.attendee + "'";
       document.getElementById("neighbor_6").innerHTML = a;
     };
 
     //반복 적용
+    drawCircle(100);
+    drawCircle(130);
+    drawCircle(160);
 
-    // function m() {
-    //   setInterval(num, 5000);
-    // }
+    const round_01 = document.getElementById("round_01");
+    var num_06 = () => {
+      const a1 = Math.floor(Math.random() * 9 + 1);
+      round_01.innerHTML = this.props.word[a1];
+    };
 
+    function m() {
+      setInterval(num_06, 5000);
+    }
     Because();
-    //m();
+    m();
   }
 
   render() {
     return (
       <div className="effects effect6">
-        {/* {this.props.attendee} */}
         <div id="test" />
-        <div id="name_6" />
-        <div id="blotter_1" />
-        <div id="title">
-          <h1 id="title_bg" />
-          <div id="title_text" />
-
-          <div id="neighbor_6" />
+        <div id="name_6">
+          {this.props.names} {", you are "}
         </div>
-        {/* <div ref={container => (this.container = container)} />) */}
+        <div id="round_01" />
+        <div id="neighbor_6" />
       </div>
     );
   }

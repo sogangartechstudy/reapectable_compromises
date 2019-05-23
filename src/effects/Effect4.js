@@ -84,7 +84,7 @@ export class Effect4 extends Component {
         <div class="container">
           <p>
             {this.props.names}
-            {" =="} <span class="typed-text_1" />
+            {" == "} <span class="typed-text_1" />
             <span class="cursor">&nbsp;</span>
           </p>
           <div id="neighbor_4" />

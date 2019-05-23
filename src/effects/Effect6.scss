@@ -39,53 +39,20 @@ h3 {
   border: var(--boxborder) solid var(--dark);
 }
 
-// #title_bg {
-//   background-image: linear-gradient(180deg, transparent 0%, yellow 0);
-//   animation-name: indown;
-//   animation-duration: 5s;
-//   animation-fill-mode: both;
-//   // animation-iteration-count: infinite;r
-//   background-repeat: no-repeat;
-//   animation-timing-function: ease;
-//   display: inline;
-//   color: rgba(0, 0, 0, 0);
-//   background-size: 100% calc(100% - 2px);
-//   opacity: 0.5;
-// }
-
-// @keyframes indown {
-//   0% {
-//     background-size: 0% 0%;
-//   }
-//   100% {
-//     background-size: 100% calc(100% - 2px);
-//   }
-// }
-
-// #title__text {
-//   position: absolute;
-//   top: 0px;
-//   left: 0px;
-
-//   animation-name: slide-up;
-//   animation-duration: 3s;
-//   animation-fill-mode: both;
-//   transform-origin: top left;
-// }
 #neighbor_6 {
   font-style: italic;
   line-height: 0.9;
-  letter-spacing: -2px;
-  //position: absolute;
-  //bottom: 5%;
+  letter-spacing: -1px;
+  position: absolute;
+  bottom: 5%;
   font-size: 80%;
   //font-family: "Crimson Text", "sans serif";
   color: black;
-  padding: 10%;
-  top: 40px;
-  //right: 13px;
+  padding: 5%;
+  //top: 40px;
+  right: 13px;
   animation: fadeIn 4s infinite alternate;
-  //text-align: right;
+  text-align: center;
 }
 
 @keyframes fadeIn {
@@ -97,21 +64,39 @@ h3 {
 #name_6 {
   color: black;
   font-weight: bold;
-  font-family: "Noto Sans", sans-serif;
-  text-transform: uppercase;
+  font-family: "Roboto", sans-serif;
+  //text-transform: capitalize;
   font-size: 120%;
   padding-top: 5%;
   letter-spacing: -2px;
 }
 
 .dot {
+  font-family: "Roboto", sans-serif;
   font-weight: bold;
   position: absolute;
+  margin: auto;
 }
 
 #test {
   //background-color: lightblue;
-  position: relative;
+  position: absolute;
   transform: translate(80px, 80px);
+  text-align: center;
+  left: 80px;
+  opacity: 0.4;
+}
+
+#round_01 {
+  font-family: "Crimson Text", "sans serif";
+  font-weight: bolder;
+  font-size: 200%;
+  color: yellow;
+
+  text-transform: capitalize;
+  font-size: 3vw;
+  line-height: 110%;
+  padding: 1%;
+  // border-bottom: 5px solid black;#name_1 {
   text-align: center;
 }

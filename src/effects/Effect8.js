@@ -42,9 +42,9 @@ export class Effect8 extends Component {
 
     //반복 적용
     function m1() {
-      setInterval(num1, 2000);
-      setInterval(num2, 2000);
-      setInterval(equal, 2000);
+      setInterval(num1, 5000);
+      setInterval(num2, 5000);
+      setInterval(equal, 1000);
     }
 
     Because();

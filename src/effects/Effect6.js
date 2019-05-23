@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./Effect6.scss";
+import Matter from "matter-js";
 
 //Blotter
 export class Effect6 extends Component {
@@ -14,120 +15,160 @@ export class Effect6 extends Component {
   };
 
   componentDidMount() {
-    var c;
-    var nameArray_1 = [];
-    var namepopup_1 = () => {
-      for (var i = 0; i < this.props.names.length; i++) {
-        nameArray_1.push(this.props.names[i]);
+    // module aliases
+    var Engine = Matter.Engine,
+      Render = Matter.Render,
+      World = Matter.World,
+      Body = Matter.Body,
+      Bodies = Matter.Bodies;
+
+    var worldW = window.innerWidth;
+    var worldH = window.innerHeight;
+
+    var xVel;
+    var ceiling;
+
+    var engine;
+    var render;
+
+    // bodies
+    var blocks = [];
+    var walls = [];
+    var ground;
+
+    // DOM elements
+    var hBlocks = document.getElementsByClassName("anarchy");
+
+    var pageWidth = 0;
+
+    window.onload = function() {
+      pageWidth = window.innerWidth;
+    };
+
+    window.onresize = function() {
+      var newpageWidth = window.innerWidth;
+      if (newpageWidth < pageWidth) {
+        for (var i = 0; i < blocks.length; i++) {
+          Body.setPosition(blocks[i].body, {
+            x: newpageWidth / 2,
+            y: window.innerHeight + 500 + 50 * i
+          });
+        }
       }
-
-      nameArray_1.sort();
-      c = document.getElementById("name_1").innerHTML = nameArray_1.join(", ");
+      pageWidth = newpageWidth;
     };
 
-    //var nameArray_1 = [];
-
-    // var textArray_1 = [];
-    // for (var i = 0; i < this.props.word.length + 1; i++) {
-    //   textArray_1.push(this.props.word[i]);
-    // }
-    //이름 띄어쓰기 및 스타일 적용
-    // var c= null;
-
-    // var namepopup = () => {
-    //   for (var i = 0; i < this.props.names.length; i++) {
-    //     nameArray_1.push(this.props.names[i]);
-    //   }
-
-    //   nameArray_1.sort();
-    //   c = document.getElementById("title_bg").innerHTML =
-    //     "Hi! " + nameArray_1.join(", ") + " Thanks for seeing me!";
-    // };
-
-    // namepopup();
-
-    var Blotterpop = () => {
-      var Blotter = window.Blotter;
-      var SlidingDoorMaterial = window.Blotter.SlidingDoorMaterial;
-      var textArray_num = Math.floor(Math.random() * 9 + 1);
-
-      var message = this.props.word[textArray_num];
-
-      var text = new Blotter.Text(message, {
-        family: "serif",
-        size: 70,
-        fill: "#000000",
-        paddingLeft: 40,
-        paddingRight: 40
-      });
-
-      var customValues = {
-        uDivisions: 15,
-        uDivisionWidth: 0.25,
-        uSpeed: 0.2,
-        uAnimateHorizontal: true,
-        uFlipAnimationDirection: true
+    function Box(x, y, w, h) {
+      var options = {
+        density: 0.00005,
+        friction: 0.5,
+        restitution: 0
       };
-      var material = new Blotter.SlidingDoorMaterial();
-
-      material.uniforms.uDivisions.value = customValues.uDivisions;
-      material.uniforms.uDivisionWidth.value = customValues.uDivisionWidth;
-      material.uniforms.uSpeed.value = customValues.speed;
-      material.uniforms.uAnimateHorizontal.value =
-        customValues.uAnimateHorizontal;
-      material.uniforms.uFlipAnimationDirection.value =
-        customValues.uFlipAnimationDirection;
-
-      var blotter = new Blotter(material, {
-        texts: text
-      });
-
-      let el = document.getElementById("blotter_1");
-      var scope = blotter.forText(text);
-      scope.appendTo(el);
-      console.log(message);
-    };
-    var num6 = () => {
-      Blotterpop();
-    };
-
-    function m1() {
-      setInterval(num6, 1000);
+      this.body = Bodies.rectangle(x, y, w, h, options);
+      xVel = 10 * Math.random() - 5;
+      Body.setVelocity(this.body, { x: xVel, y: 0 });
+      World.add(engine.world, [this.body]);
     }
 
-    m1();
-    namepopup_1();
+    function Ball(x, y, r) {
+      var options = {
+        density: 0.00005,
+        friction: 0.5,
+        restitution: 0
+      };
+      this.body = Bodies.circle(x, y, r, options);
+      xVel = 10 * Math.random() - 5;
+      Body.setVelocity(this.body, { x: xVel, y: 0 });
+      World.add(engine.world, [this.body]);
+    }
 
-    let delay = 5000;
+    function setup() {
+      engine = Engine.create();
+      engine.world.gravity.y = -0.5;
 
-    let timerId = setTimeout(function request() {
-      num6();
-      timerId = setTimeout(request, delay);
-    }, delay);
+      render = Render.create({
+        element: document.body,
+        engine: engine,
+        options: {
+          width: window.innerWidth,
+          height: window.innerHeight,
+          wireframes: false,
+          showAngleIndicator: true
+        }
+      });
+      Render.run(render);
+      for (var i = 0; i < hBlocks.length; i++) {
+        var startHeight = window.innerHeight;
+        if (hBlocks[i].classList.contains("prio1")) {
+          startHeight += 500;
+        } else if (hBlocks[i].classList.contains("prio2")) {
+          startHeight += 1500;
+        } else if (hBlocks[i].classList.contains("prio3")) {
+          startHeight += 2500;
+        } else if (hBlocks[i].classList.contains("prio4")) {
+          startHeight += 3500;
+        } else if (hBlocks[i].classList.contains("prio5")) {
+          startHeight += 4500;
+        } else if (hBlocks[i].classList.contains("prio6")) {
+          startHeight += 5500;
+        } else {
+          startHeight += 6500;
+        }
+        if (hBlocks[i].classList.contains("ball")) {
+          blocks.push(
+            new Ball(
+              window.innerWidth / 2,
+              startHeight,
+              hBlocks[i].offsetWidth / 2
+            )
+          );
+        } else if (hBlocks[i].classList.contains("block")) {
+          blocks.push(
+            new Box(
+              window.innerWidth / 2,
+              startHeight,
+              hBlocks[i].offsetWidth,
+              hBlocks[i].offsetHeight
+            )
+          );
+        }
+      }
+      ground = Bodies.rectangle(10000, -50, 20000, 100, { isStatic: true });
+      ceiling = Bodies.rectangle(10000, 40050, 20000, 100, { isStatic: true });
+      walls[0] = Bodies.rectangle(-50, 20000, 100, 40000, { isStatic: true });
+      walls[1] = Bodies.rectangle(window.innerWidth + 50, 20000, 100, 40000, {
+        isStatic: true
+      });
+    }
 
-    // document.addEventListener("DOMContentLoaded", function() {
-    //   setInterval(message, typingDelay + 900);
-    // });
+    function draw() {
+      // for(var i=0;i<boxes.length;i++){
+      //   boxes[i].show();
+      // }
+      World.add(engine.world, [ground, ceiling, walls[0], walls[1]]);
+    }
 
-    // var start = null;
+    setup();
+    draw();
 
-    // var formula = 0.5;
-    // var d = 0.001;
-    // function step(timestamp) {
-    //   if (!start) start = timestamp;
-    //   var progress = timestamp - start;
-    //   formula = formula + d;
-
-    //   // el.style.transform = "translateX(" + Math.min(progress / 10, 200) + "px)";
-    //   if (progress < 500000) {
-    //     window.requestAnimationFrame(step);
-    //     if (formula > 5 || formula < -1) {
-    //       formula = formula - d;
-    //     }
-    //   }
-    // }
-
-    // window.requestAnimationFrame(step);
+    (function render() {
+      Engine.update(engine, 20);
+      Body.setPosition(walls[1], { x: document.body.clientWidth + 50, y: 0 });
+      for (var i = 0; i < blocks.length; i++) {
+        var xTrans = blocks[i].body.position.x - hBlocks[i].offsetWidth / 2;
+        var yTrans = blocks[i].body.position.y - hBlocks[i].offsetHeight / 2;
+        hBlocks[i].style.transform =
+          "translate(" +
+          xTrans +
+          "px, " +
+          yTrans +
+          "px) rotate(" +
+          blocks[i].body.angle +
+          "rad)";
+        hBlocks[i].style.visibility = "visible";
+      }
+      window.requestAnimationFrame(render);
+    })();
 
     var Because = () => {
       var a = "Because you live in " + "'" + this.props.attendee + "'";
@@ -139,9 +180,33 @@ export class Effect6 extends Component {
 
   render() {
     return (
-      <div className="effects effect1">
+      <div className="effects effect6">
+        <p id="intro" class="anarchy block prio1">
+          Articles, code experiments and other non-work things.
+        </p>
+        <h3 class="anarchy block prio6">Malcolm Tucker</h3>
+        <p id="intro" class="anarchy block prio1">
+          Articles, code experiments and other non-work things.
+        </p>
+        <h3 class="anarchy block prio6">Malcolm Tucker</h3>
+        <p id="intro" class="anarchy block prio1">
+          Articles, code experiments and other non-work things.
+        </p>
+        <h3 class="anarchy block prio6">Malcolm Tucker</h3>
+        <p id="intro" class="anarchy block prio1">
+          Articles, code experiments and other non-work things.
+        </p>
+        <h3 class="anarchy block prio6">Malcolm Tucker</h3>
+        <p id="intro" class="anarchy block prio1">
+          Articles, code experiments and other non-work things.
+        </p>
+        <h3 class="anarchy block prio6">Malcolm Tucker</h3>
+        <p id="intro" class="anarchy block prio1">
+          Articles, code experiments and other non-work things.
+        </p>
+        <h3 class="anarchy block prio6">Malcolm Tucker</h3>
         {/* {this.props.attendee} */}
-        <div id="name_1" />
+        <div id="name_6" />
         <div id="blotter_1" />
         <div id="title">
           <h1 id="title_bg" />

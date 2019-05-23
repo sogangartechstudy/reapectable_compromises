@@ -22,7 +22,9 @@ WebFont.load({
       "sans serif",
       "Alfa Slab One",
       "cursive",
-      "Titillium Web"
+      "Titillium Web",
+      "Noto Sans",
+      "Roboto"
     ]
   }
 });

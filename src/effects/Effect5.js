@@ -64,7 +64,7 @@ export class Effect5 extends Component {
     }
 
     var Because = () => {
-      var a = "Because you are in " + "'" + this.props.attendee + "'";
+      var a = "Because you live in " + "'" + this.props.attendee + "'";
       document.getElementById("neighbor_5").innerHTML = a;
     };
 

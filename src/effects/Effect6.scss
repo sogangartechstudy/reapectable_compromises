@@ -1,5 +1,6 @@
-// .effect1 {
-// }
+.effect6 {
+  padding: 10%;
+}
 
 .b-canvas {
   position: relative;
@@ -17,6 +18,25 @@ h1 {
     color: black;
     display: inline;
   }
+}
+
+#intro {
+  background-color: var(--orange);
+  font-size: 18px;
+  width: 180px;
+  padding: 10px;
+  font-family: "Carter One", cursive;
+  font-size: 22px;
+  border: var(--boxborder) solid var(--dark);
+}
+
+h3 {
+  width: 200px;
+  padding-top: 10px;
+  font-family: "Modak", cursive;
+  font-size: 40px;
+  background-color: var(--blue);
+  border: var(--boxborder) solid var(--dark);
 }
 
 // #title_bg {
@@ -73,12 +93,12 @@ h1 {
   }
 }
 
-#name_1 {
+#name_6 {
   color: black;
   font-weight: bold;
   font-family: "Noto Sans", sans-serif;
   text-transform: uppercase;
   font-size: 120%;
-  line-height: 80%;
-  padding: 5%;
+  padding-top: 5%;
+  letter-spacing: -2px;
 }

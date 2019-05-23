@@ -2,10 +2,11 @@
   // position: relative;
   // flex-direction: column;
   // justify-content: center;
+  padding: 8%;
 }
 
 body {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Roboto", sans-serif;
   background-color: #000;
   color: #eee;
 }
@@ -17,7 +18,7 @@ body {
 }
 .container p {
   //font-size: 3rem;
-  padding: 2em;
+
   font-weight: bold;
   letter-spacing: 0.1rem;
   text-align: center;
@@ -25,15 +26,17 @@ body {
 }
 .container p span.typed-text {
   font-weight: normal;
-  padding: 1em;
   font-size: 1.5em;
-  color: blueviolet;
-  font-family: Georgia, "Times New Roman", Times, serif;
+  color: blue;
+  font-weight: 900;
+  font-family: "Crimson Text", "sans serif";
+  font-style: italic;
 }
 
 .container p div.typed-name {
   //font-weight: normal;
-  font-family: "Times New Roman", Times, serif;
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
   font-size: 110%;
   line-height: 80%;
   color: white;
@@ -140,13 +143,13 @@ body {
 #neighbor_5 {
   font-style: italic;
   line-height: 0.9;
-  letter-spacing: -2px;
+  letter-spacing: -1px;
   position: absolute;
   bottom: 5%;
   font-size: 90%;
   //font-family: "Crimson Text", "sans serif";
   color: black;
-  padding-right: 4%;
+  padding: 4%;
   right: 13px;
   animation: fadeIn 4s infinite alternate;
   text-align: right;

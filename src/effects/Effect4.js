@@ -18,7 +18,7 @@ export class Effect4 extends Component {
       }
 
       nameArray_4.sort();
-      c = document.getElementById("mar").innerHTML = nameArray_4.join(" ");
+      c = document.getElementById("name_4").innerHTML = nameArray_4.join(" / ");
     };
 
     //텍스트 데이터에서 뽑아와서 랜덤하게 적용
@@ -57,7 +57,8 @@ export class Effect4 extends Component {
   render() {
     return (
       <div className="effects effect4">
-        {this.props.attendee}
+        <div id="name_4" />
+        {/* {this.props.attendee} */}
         {/* <div class="wrapper">
           <svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
             <defs>
@@ -75,15 +76,15 @@ export class Effect4 extends Component {
         <div id="atag_01" />
         <div id="atag_02" />
         <div id="atag_03" />
-
-        <div id="marquee">
+        &nbsp;
+        {/* <div id="marquee">
           <div id="mar">
             <span>{this.props.names}</span>
           </div>
           <div id="mar" aria-hidden="true">
             <span>{this.props.names}</span>
           </div>
-        </div>
+        </div> */}
         <div id="neighbor_4" />
       </div>
     );

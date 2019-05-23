@@ -5,9 +5,9 @@
       "city": "Pittsburgh",
       "children": [
         {
-          "neighbor": "Larimer",
-          "attendee": 3,
-          "names": ["james", "Lily", "Stark"],
+          "neighbor": "Allegheny West",
+          "attendee": 1,
+          "names": ["Kenny"],
           "word": [
             "fit",
             "sold",
@@ -22,9 +22,9 @@
           ]
         },
         {
-          "neighbor": "bloomfield",
-          "attendee": 5,
-          "names": ["Harry", "Selly", "May", "Natsuki", "Mimi"],
+          "neighbor": "Beechview",
+          "attendee": 2,
+          "names": ["Fred", "Michael"],
           "word": [
             "jobs",
             "1868",
@@ -39,9 +39,9 @@
           ]
         },
         {
-          "neighbor": "Carrick",
-          "attendee": 4,
-          "names": ["Ron", "Hermione", "Fred", "Sawajaki"],
+          "neighbor": "Forest Hills",
+          "attendee": 1,
+          "names": ["Michael"],
           "word": [
             "find",
             "french",
@@ -54,69 +54,90 @@
             "stores",
             "save"
           ]
-        }
-      ]
-    },
-    {
-      "city": "New_York",
-      "children": [
+        },
         {
-          "neighbor": "Rego Park",
+          "neighbor": "Garfield",
           "attendee": 1,
-          "names": ["jimmy"],
+          "names": ["Zach"],
           "word": [
-            "katz",
-            "lucky",
-            "malls",
-            "including",
-            "families",
+            "find",
+            "french",
+            "ethnic",
+            "suir",
+            "fellow",
+            "mart",
+            "saturday",
+            "near",
             "stores",
-            "takes",
-            "hills",
-            "better",
-            "fairs"
+            "save"
           ]
         },
         {
-          "neighbor": "Briarwood",
-          "attendee": 7,
-          "names": [
-            "yuna",
-            "david",
-            "mike",
-            "Daisy",
-            "midori",
-            "Anna",
-            "Sabrina"
-          ],
+          "neighbor": "Mt Lebanon",
+          "attendee": 1,
+          "names": ["Jackie"],
           "word": [
-            "surrounding",
-            "train",
-            "walking",
-            "consists",
-            "relatively",
-            "using",
-            "fun",
-            "reside",
-            "north",
-            "coming"
+            "find",
+            "french",
+            "ethnic",
+            "suir",
+            "fellow",
+            "mart",
+            "saturday",
+            "near",
+            "stores",
+            "save"
           ]
         },
         {
-          "neighbor": "Murray",
+          "neighbor": "Northside",
           "attendee": 2,
-          "names": ["Julia", "Nicolas"],
+          "names": ["Nicole", "Allison"],
           "word": [
-            "lot",
-            "hill",
-            "rent",
-            "security",
-            "bars",
-            "sirens",
-            "sense",
-            "often",
-            "change",
-            "grocery"
+            "find",
+            "french",
+            "ethnic",
+            "suir",
+            "fellow",
+            "mart",
+            "saturday",
+            "near",
+            "stores",
+            "save"
+          ]
+        },
+        {
+          "neighbor": "Southside Slops",
+          "attendee": 2,
+          "names": ["Jeffrey", "Tami"],
+          "word": [
+            "find",
+            "french",
+            "ethnic",
+            "suir",
+            "fellow",
+            "mart",
+            "saturday",
+            "near",
+            "stores",
+            "save"
+          ]
+        },
+        {
+          "neighbor": "Swissvale",
+          "attendee": 1,
+          "names": ["Maggie"],
+          "word": [
+            "find",
+            "french",
+            "ethnic",
+            "suir",
+            "fellow",
+            "mart",
+            "saturday",
+            "near",
+            "stores",
+            "save"
           ]
         }
       ]

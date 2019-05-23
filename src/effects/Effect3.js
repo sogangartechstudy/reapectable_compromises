@@ -65,11 +65,7 @@ export class Effect3 extends Component {
         <div class="card">
           <div id="name_3" />
         </div>
-        {/* 
-        <h1>
-          <span>You</span>
-          <span> are</span>
-        </h1> */}
+
         <div id="text_01"> </div>
         <div id="text_02"> </div>
         <div id="text_03"> </div>

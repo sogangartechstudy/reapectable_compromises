@@ -35,71 +35,71 @@
 // }
 /********************/
 
-@font-face {
-  font-family: Agency;
-  src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/agency-fb-bold.woff);
-}
-body {
-  font-family: Avenir, sans-serif;
-  margin: 0;
-}
+// @font-face {
+//   font-family: Agency;
+//   src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/agency-fb-bold.woff);
+// }
+// body {
+//   font-family: Avenir, sans-serif;
+//   margin: 0;
+// }
 
-#marquee {
-  margin-top: 3rem;
-  perspective: 500px;
-  font-size: 0;
-  font-family: Agency, sans-serif;
-}
-#marquee div {
-  display: inline;
-  height: 12rem;
-  width: 20rem;
-  position: relative;
-  // top: 5px;
-  left: 250px;
-}
+// #marquee {
+//   margin-top: 3rem;
+//   perspective: 500px;
+//   font-size: 0;
+//   font-family: Agency, sans-serif;
+// }
+// #marquee div {
+//   display: inline;
+//   height: 12rem;
+//   width: 20rem;
+//   position: relative;
+//   // top: 5px;
+//   left: 250px;
+// }
 
-#marquee div:first-of-type {
-  background: #e5233e;
-  transform-origin: top right;
-  transform: rotateY(-40deg);
-  color: #fff;
-}
-#marquee div:last-of-type {
-  background: #b31e31;
-  transform-origin: top left;
-  transform: rotateY(45deg);
-  color: #f8c9d9;
-}
-#marquee div {
-  font-size: 11mm;
-  overflow: hidden;
-}
-#marquee div span {
-  position: absolute;
-  width: 400%;
-  line-height: 1.4;
-}
-#marquee div:first-of-type span {
-  transform: translateX(40rem);
-  animation: leftcrawl 14s linear infinite;
-  text-shadow: 4px 0px 4px rgba(0, 0, 0, 0.3);
-}
-#marquee div:last-of-type span {
-  transform: translateX(20rem);
-  animation: rightcrawl 14s linear infinite;
-}
+// #marquee div:first-of-type {
+//   background: #e5233e;
+//   transform-origin: top right;
+//   transform: rotateY(-40deg);
+//   color: #fff;
+// }
+// #marquee div:last-of-type {
+//   background: #b31e31;
+//   transform-origin: top left;
+//   transform: rotateY(45deg);
+//   color: #f8c9d9;
+// }
+// #marquee div {
+//   font-size: 11mm;
+//   overflow: hidden;
+// }
+// #marquee div span {
+//   position: absolute;
+//   width: 400%;
+//   line-height: 1.4;
+// }
+// #marquee div:first-of-type span {
+//   transform: translateX(40rem);
+//   animation: leftcrawl 14s linear infinite;
+//   text-shadow: 4px 0px 4px rgba(0, 0, 0, 0.3);
+// }
+// #marquee div:last-of-type span {
+//   transform: translateX(20rem);
+//   animation: rightcrawl 14s linear infinite;
+// }
 
-@keyframes leftcrawl {
-  to {
-    transform: translateX(-100rem);
-  }
-}
-@keyframes rightcrawl {
-  to {
-    transform: translateX(-130rem);
-  }
-}
+// @keyframes leftcrawl {
+//   to {
+//     transform: translateX(-100rem);
+//   }
+// }
+// @keyframes rightcrawl {
+//   to {
+//     transform: translateX(-130rem);
+//   }
+// }
 
 /*************** Word Interaction ***************/
 /* Google Webfonts */
@@ -118,16 +118,20 @@ html {
   // position: relative;
   // top: 10px;
   // left: 50px;
-  font-family: Oswald;
-  font-size: 30mm;
+  font-family: "Roboto", sans-serif;
+  width: 50%;
+  font-size: 2vw;
+  padding: 3%;
+  font-weight: 900;
   line-height: 0.5;
   transition: 0.5s all ease;
   text-transform: uppercase;
   text-decoration: none;
-  position: relative;
+  // position: relative;
   top: 30px;
-  text-align: center;
+  text-align: left;
   padding-top: 0.4em;
+  flex-wrap: wrap;
   text-shadow: 
     /* Color 1 */ 1px 1px #61b4de, 2px 2px #61b4de,
     3px 3px #61b4de, 4px 4px #61b4de, 5px 5px #61b4de,
@@ -137,6 +141,7 @@ html {
     /* Color 4 */ 16px 16px #e84c50, 17px 17px #e84c50, 18px 18px #e84c50,
     19px 19px #e84c50, 20px 20px #e84c50, /* Color 5 */ 21px 21px #4e5965,
     22px 22px #4e5965, 23px 23px #4e5965, 24px 24px #4e5965, 25px 25px #4e5965;
+  align-content: stretch;
 }
 
 /************************************************/
@@ -162,4 +167,15 @@ canvas {
   from {
     opacity: 0;
   }
+}
+
+#name_4 {
+  color: black;
+  font-weight: 900;
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  font-size: 120%;
+  line-height: 110%;
+  padding: 1%;
+  //letter-spacing: -2px;
 }

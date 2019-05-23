@@ -2,12 +2,13 @@ import React, { Component } from "react";
 import data from "../data.json";
 import d3 from "d3";
 import "./Screen.scss";
-import Effect1 from "../effects/Effect2";
-import Effect2 from "../effects/Effect3";
-import Effect3 from "../effects/Effect1";
+import Effect1 from "../effects/Effect1";
+import Effect2 from "../effects/Effect2";
+import Effect3 from "../effects/Effect3";
 import Effect4 from "../effects/Effect4";
 import Effect5 from "../effects/Effect5";
 import Effect6 from "../effects/Effect6";
+import Effect7 from "../effects/Effect7";
 
 import ReactDOM from "react-dom";
 import { readlink } from "fs";
@@ -22,12 +23,17 @@ export class Screen extends React.Component {
   componentDidMount() {
     function colors(n) {
       var _colors = [
+        "#F3DF89",
+        "#B74F55",
         "#90B9AD",
+        "#F6F6F4",
         "#6D8B6D",
         "#E46460",
         "#EB9263",
-        "#F3DF89",
-        "#F3DF89"
+
+        "#22c1c3",
+
+        "#925D60"
 
         // "#F78773",
         // "#CD7FA5",
@@ -170,6 +176,15 @@ export class Screen extends React.Component {
         case 5:
           return (
             <Effect6
+              attendee={data.children[cityNum].children[neigborNum].neighbor}
+              names={data.children[cityNum].children[neigborNum].names}
+              word={data.children[cityNum].children[neigborNum].word}
+            />
+          );
+          break;
+        case 6:
+          return (
+            <Effect7
               attendee={data.children[cityNum].children[neigborNum].neighbor}
               names={data.children[cityNum].children[neigborNum].names}
               word={data.children[cityNum].children[neigborNum].word}

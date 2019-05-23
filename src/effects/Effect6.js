@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./Effect6.scss";
-import Matter from "matter-js";
 
 //Blotter
 export class Effect6 extends Component {
@@ -15,197 +14,92 @@ export class Effect6 extends Component {
   };
 
   componentDidMount() {
-    // module aliases
-    var Engine = Matter.Engine,
-      Render = Matter.Render,
-      World = Matter.World,
-      Body = Matter.Body,
-      Bodies = Matter.Bodies;
+    var c;
+    var nameArray_6 = [];
+    var namepopup_6 = () => {
+      for (var i = 0; i < this.props.names.length; i++) {
+        nameArray_6.push(this.props.names[i]);
+      }
 
-    var worldW = window.innerWidth;
-    var worldH = window.innerHeight;
-
-    var xVel;
-    var ceiling;
-
-    var engine;
-    var render;
-
-    // bodies
-    var blocks = [];
-    var walls = [];
-    var ground;
-
-    // DOM elements
-    var hBlocks = document.getElementsByClassName("anarchy");
-
-    var pageWidth = 0;
-
-    window.onload = function() {
-      pageWidth = window.innerWidth;
+      nameArray_6.sort();
+      c = nameArray_6.join(", ");
     };
 
-    window.onresize = function() {
-      var newpageWidth = window.innerWidth;
-      if (newpageWidth < pageWidth) {
-        for (var i = 0; i < blocks.length; i++) {
-          Body.setPosition(blocks[i].body, {
-            x: newpageWidth / 2,
-            y: window.innerHeight + 500 + 50 * i
-          });
-        }
+    namepopup_6();
+    var phrase = c + " is " + "<< " + this.props.word[1] + " >>";
+
+    function drawCircle() {
+      var word = phrase.split("");
+      var quantity = word.length;
+      var radius = 100;
+      var padding = 10;
+      var radians = 3.14;
+      var angle = 360 / (2 * Math.PI);
+
+      var point = Math.PI / quantity;
+
+      var step = (2 * Math.PI) / quantity;
+
+      for (var i = 0, j = 0; i < radians; i += point, j++) {
+        var cat_oppos = Math.sin(step * j) * radius;
+        var cat_attach = Math.cos(step * j) * radius;
       }
-      pageWidth = newpageWidth;
-    };
 
-    function Box(x, y, w, h) {
-      var options = {
-        density: 0.00005,
-        friction: 0.5,
-        restitution: 0
-      };
-      this.body = Bodies.rectangle(x, y, w, h, options);
-      xVel = 10 * Math.random() - 5;
-      Body.setVelocity(this.body, { x: xVel, y: 0 });
-      World.add(engine.world, [this.body]);
-    }
+      var point = Math.PI / quantity;
 
-    function Ball(x, y, r) {
-      var options = {
-        density: 0.00005,
-        friction: 0.5,
-        restitution: 0
-      };
-      this.body = Bodies.circle(x, y, r, options);
-      xVel = 10 * Math.random() - 5;
-      Body.setVelocity(this.body, { x: xVel, y: 0 });
-      World.add(engine.world, [this.body]);
-    }
+      var step = (2 * Math.PI) / quantity;
 
-    function setup() {
-      engine = Engine.create();
-      engine.world.gravity.y = -0.5;
+      for (var i = 0, j = 0; i < radians; i += point, j++) {
+        var cat_oppos = Math.sin(step * j) * radius;
+        var cat_attach = Math.cos(step * j) * radius;
 
-      render = Render.create({
-        element: document.body,
-        engine: engine,
-        options: {
-          width: window.innerWidth,
-          height: window.innerHeight,
-          wireframes: false,
-          showAngleIndicator: true
-        }
-      });
-      Render.run(render);
-      for (var i = 0; i < hBlocks.length; i++) {
-        var startHeight = window.innerHeight;
-        if (hBlocks[i].classList.contains("prio1")) {
-          startHeight += 500;
-        } else if (hBlocks[i].classList.contains("prio2")) {
-          startHeight += 1500;
-        } else if (hBlocks[i].classList.contains("prio3")) {
-          startHeight += 2500;
-        } else if (hBlocks[i].classList.contains("prio4")) {
-          startHeight += 3500;
-        } else if (hBlocks[i].classList.contains("prio5")) {
-          startHeight += 4500;
-        } else if (hBlocks[i].classList.contains("prio6")) {
-          startHeight += 5500;
-        } else {
-          startHeight += 6500;
-        }
-        if (hBlocks[i].classList.contains("ball")) {
-          blocks.push(
-            new Ball(
-              window.innerWidth / 2,
-              startHeight,
-              hBlocks[i].offsetWidth / 2
-            )
-          );
-        } else if (hBlocks[i].classList.contains("block")) {
-          blocks.push(
-            new Box(
-              window.innerWidth / 2,
-              startHeight,
-              hBlocks[i].offsetWidth,
-              hBlocks[i].offsetHeight
-            )
-          );
-        }
+        var elm = document.createElement("div");
+        elm.innerHTML = word[j];
+        elm.classList.add("dot");
+
+        elm.style.top = padding + cat_oppos + "px";
+        elm.style.left = padding + cat_attach + "px";
+        elm.style.transform = "rotate(" + (angle * (step * j) + 90) + "deg)";
+
+        document.getElementById("test").appendChild(elm);
       }
-      ground = Bodies.rectangle(10000, -50, 20000, 100, { isStatic: true });
-      ceiling = Bodies.rectangle(10000, 40050, 20000, 100, { isStatic: true });
-      walls[0] = Bodies.rectangle(-50, 20000, 100, 40000, { isStatic: true });
-      walls[1] = Bodies.rectangle(window.innerWidth + 50, 20000, 100, 40000, {
-        isStatic: true
-      });
     }
 
-    function draw() {
-      // for(var i=0;i<boxes.length;i++){
-      //   boxes[i].show();
-      // }
-      World.add(engine.world, [ground, ceiling, walls[0], walls[1]]);
-    }
+    drawCircle();
+    // //텍스트 데이터에서 뽑아와서 랜덤하게 적용
+    // const text_01 = document.getElementById("text_01");
+    // const text_02 = document.getElementById("text_02");
+    // const text_03 = document.getElementById("text_03");
 
-    setup();
-    draw();
-
-    (function render() {
-      Engine.update(engine, 20);
-      Body.setPosition(walls[1], { x: document.body.clientWidth + 50, y: 0 });
-      for (var i = 0; i < blocks.length; i++) {
-        var xTrans = blocks[i].body.position.x - hBlocks[i].offsetWidth / 2;
-        var yTrans = blocks[i].body.position.y - hBlocks[i].offsetHeight / 2;
-        hBlocks[i].style.transform =
-          "translate(" +
-          xTrans +
-          "px, " +
-          yTrans +
-          "px) rotate(" +
-          blocks[i].body.angle +
-          "rad)";
-        hBlocks[i].style.visibility = "visible";
-      }
-      window.requestAnimationFrame(render);
-    })();
+    // var num = () => {
+    //   const a1 = Math.floor(Math.random() * 9 + 1);
+    //   const a2 = Math.floor(Math.random() * 9 + 1);
+    //   const a3 = Math.floor(Math.random() * 9 + 1);
+    //   text_01.innerHTML = this.props.word[a1] + ",";
+    //   text_02.innerHTML = this.props.word[a2] + ",";
+    //   text_03.innerHTML = this.props.word[a3] + ",";
+    // };
 
     var Because = () => {
       var a = ".... because you live in " + "'" + this.props.attendee + "'";
       document.getElementById("neighbor_6").innerHTML = a;
     };
 
+    //반복 적용
+
+    // function m() {
+    //   setInterval(num, 5000);
+    // }
+
     Because();
+    //m();
   }
 
   render() {
     return (
       <div className="effects effect6">
-        <p id="intro" class="anarchy block prio1">
-          Articles, code experiments and other non-work things.
-        </p>
-        <h3 class="anarchy block prio6">Malcolm Tucker</h3>
-        <p id="intro" class="anarchy block prio1">
-          Articles, code experiments and other non-work things.
-        </p>
-        <h3 class="anarchy block prio6">Malcolm Tucker</h3>
-        <p id="intro" class="anarchy block prio1">
-          Articles, code experiments and other non-work things.
-        </p>
-        <h3 class="anarchy block prio6">Malcolm Tucker</h3>
-        <p id="intro" class="anarchy block prio1">
-          Articles, code experiments and other non-work things.
-        </p>
-        <h3 class="anarchy block prio6">Malcolm Tucker</h3>
-        <p id="intro" class="anarchy block prio1">
-          Articles, code experiments and other non-work things.
-        </p>
-        <h3 class="anarchy block prio6">Malcolm Tucker</h3>
-        <p id="intro" class="anarchy block prio1">
-          Articles, code experiments and other non-work things.
-        </p>
-        <h3 class="anarchy block prio6">Malcolm Tucker</h3>
         {/* {this.props.attendee} */}
+        <div id="test" />
         <div id="name_6" />
         <div id="blotter_1" />
         <div id="title">

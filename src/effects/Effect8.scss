@@ -2,13 +2,14 @@
   font-family: "Alfa Slab One", "Noto Sans";
 }
 
-#neighbor_briar1 {
+#neighbor_swissvale {
   font-size: 5mm;
   font-style: italic;
+  font-weight: bolder;
   color: white;
 }
 
-#atagclass1 {
+#atagclass {
   // background-color: #e84c50;
   display: inline-block;
   float: left;
@@ -16,7 +17,7 @@
   height: 100%;
 }
 
-#equalclass1 {
+#equalclass {
   // background-color: #91c467;
   display: inline-block;
   float: left;
@@ -24,10 +25,10 @@
   height: 100%;
   font-size: 11mm;
   position: relative;
-  top: 190px;
+  top: 80px;
 }
 
-#nameclass1 {
+#nameclass {
   // background-color: #e84c50;
   display: inline-block;
   float: left;
@@ -45,12 +46,12 @@ html {
   color: #0a0a0a;
 }
 
-#atag_011,
-#atag_021,
-#atag_031 {
+#atag_01,
+#atag_02,
+#atag_03 {
   color: #ededed;
   font-family: Oswald;
-  font-size: 5mm;
+  font-size: 7mm;
   line-height: 1.5;
   transition: 0.5s all ease;
   text-transform: uppercase;
@@ -69,17 +70,16 @@ html {
     22px 22px #4e5965, 23px 23px #4e5965, 24px 24px #4e5965, 25px 25px #4e5965;
 }
 
-#nametag_011,
-#nametag_021,
-#nametag_031 {
+#nametag_01 {
   color: #ededed;
   font-family: Oswald;
-  font-size: 5mm;
+  font-size: 7mm;
   line-height: 1.5;
   transition: 0.5s all ease;
   text-transform: uppercase;
   text-decoration: none;
   position: relative;
+  top: 50px;
   text-align: center;
   padding-top: 0.4em;
   text-shadow: 
@@ -94,6 +94,10 @@ html {
 }
 
 /************************************************/
+
+canvas {
+}
+
 #neighbor_8 {
   font-style: italic;
   line-height: 0.9;
@@ -107,6 +111,4 @@ html {
   //right: 13px;
   animation: fadeIn 4s infinite alternate;
   //text-align: center;
-}
-canvas {
 }

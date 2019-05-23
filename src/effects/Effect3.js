@@ -17,6 +17,7 @@ export class Effect3 extends Component {
 
   componentDidMount() {
     //이름 불러와서 띄어쓰기 및 효과 적용
+
     var c;
     var nameArray_3 = [];
     var namepopup_3 = () => {
@@ -45,7 +46,7 @@ export class Effect3 extends Component {
     };
 
     var Because = () => {
-      var a = "Because you live in " + "'" + this.props.attendee + "'";
+      var a = ".... because you live in " + "'" + this.props.attendee + "'";
       document.getElementById("neighbor_3").innerHTML = a;
     };
 
@@ -62,9 +63,7 @@ export class Effect3 extends Component {
   render() {
     return (
       <div className="effects effect3">
-        <div class="card">
-          <div id="name_3" />
-        </div>
+        <div id="name_3" />
 
         <div id="text_01"> </div>
         <div id="text_02"> </div>

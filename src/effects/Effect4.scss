@@ -1,181 +1,167 @@
 .effect4 {
-  font-family: "Alfa Slab One", "cursive";
-}
-/*****Circle*****/
-// body {
-//   background: linear-gradient(130deg, #333, #000, #333);
-//   color: white;
-//   display: flex;
-//   height: 100vh;
-//   width: 100vw;
-// }
-
-// .wrapper {
-//   height: 100%;
-//   margin: auto;
-//   max-height: 40rem;
-//   max-width: 40rem;
-//   position: relative;
-//   width: 100%;
-// }
-
-// svg {
-//   display: block;
-//   fill: white;
-//   font-family: monospace;
-//   font-weight: bold;
-//   height: 100%;
-//   margin: auto;
-//   text-transform: uppercase;
-//   width: 100%;
-// }
-
-// text {
-//   letter-spacing: 1rem;
-// }
-/********************/
-
-// @font-face {
-//   font-family: Agency;
-//   src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/agency-fb-bold.woff);
-// }
-// body {
-//   font-family: Avenir, sans-serif;
-//   margin: 0;
-// }
-
-// #marquee {
-//   margin-top: 3rem;
-//   perspective: 500px;
-//   font-size: 0;
-//   font-family: Agency, sans-serif;
-// }
-// #marquee div {
-//   display: inline;
-//   height: 12rem;
-//   width: 20rem;
-//   position: relative;
-//   // top: 5px;
-//   left: 250px;
-// }
-
-// #marquee div:first-of-type {
-//   background: #e5233e;
-//   transform-origin: top right;
-//   transform: rotateY(-40deg);
-//   color: #fff;
-// }
-// #marquee div:last-of-type {
-//   background: #b31e31;
-//   transform-origin: top left;
-//   transform: rotateY(45deg);
-//   color: #f8c9d9;
-// }
-// #marquee div {
-//   font-size: 11mm;
-//   overflow: hidden;
-// }
-// #marquee div span {
-//   position: absolute;
-//   width: 400%;
-//   line-height: 1.4;
-// }
-// #marquee div:first-of-type span {
-//   transform: translateX(40rem);
-//   animation: leftcrawl 14s linear infinite;
-//   text-shadow: 4px 0px 4px rgba(0, 0, 0, 0.3);
-// }
-// #marquee div:last-of-type span {
-//   transform: translateX(20rem);
-//   animation: rightcrawl 14s linear infinite;
-// }
-
-// @keyframes leftcrawl {
-//   to {
-//     transform: translateX(-100rem);
-//   }
-// }
-// @keyframes rightcrawl {
-//   to {
-//     transform: translateX(-130rem);
-//   }
-// }
-
-/*************** Word Interaction ***************/
-/* Google Webfonts */
-@import url(https://fonts.googleapis.com/css?family=Oswald);
-
-/* Basic Styles */
-html {
-  margin: 1em 20%;
-  color: #0a0a0a;
-}
-
-#atag_01,
-#atag_02,
-#atag_03 {
-  color: #ededed;
   // position: relative;
-  // top: 10px;
-  // left: 50px;
+  // flex-direction: column;
+  // justify-content: center;
+  padding: 8%;
+}
+
+body {
   font-family: "Roboto", sans-serif;
-  width: 50%;
-  font-size: 2vw;
-  padding: 3%;
-  font-weight: 900;
-  line-height: 0.5;
-  transition: 0.5s all ease;
-  text-transform: uppercase;
-  text-decoration: none;
-  // position: relative;
-  top: 30px;
-  text-align: left;
-  padding-top: 0.4em;
-  flex-wrap: wrap;
-  text-shadow: 
-    /* Color 1 */ 1px 1px #61b4de, 2px 2px #61b4de,
-    3px 3px #61b4de, 4px 4px #61b4de, 5px 5px #61b4de,
-    /* Color 2 */ 6px 6px #91c467, 7px 7px #91c467, 8px 8px #91c467,
-    9px 9px #91c467, 10px 10px #91c467, /* Color 3 */ 11px 11px #f3a14b,
-    12px 12px #f3a14b, 13px 13px #f3a14b, 14px 14px #f3a14b, 15px 15px #f3a14b,
-    /* Color 4 */ 16px 16px #e84c50, 17px 17px #e84c50, 18px 18px #e84c50,
-    19px 19px #e84c50, 20px 20px #e84c50, /* Color 5 */ 21px 21px #4e5965,
-    22px 22px #4e5965, 23px 23px #4e5965, 24px 24px #4e5965, 25px 25px #4e5965;
-  align-content: stretch;
+  background-color: #000;
+  color: #eee;
+}
+.container {
+  height: 80vh;
+  //display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container p {
+  font-family: "Roboto", sans-serif;
+  font-size: 3rem;
+  padding: 0.5rem;
+  font-weight: bold;
+
+  letter-spacing: 0.1rem;
+  text-align: center;
+  overflow: hidden;
+}
+.container p span.typed-text_1 {
+  // font-weight: normal;
+  //font-size: 100%;
+
+  font-family: "Roboto", sans-serif;
+  color: blueviolet;
+
+  font-style: italic;
+  font-weight: normal;
 }
 
-/************************************************/
+.container p div#typed-name_2 {
+  //font-weight: normal;
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  //font-size: 110%;
+  line-height: 80%;
+  color: white;
+}
 
-canvas {
+.container p span.cursor {
+  //display: inline-block;
+  //font-size: 200%;
+  background-color: #ccc;
+  margin-left: 0.1rem;
+  width: 3px;
+  animation: blink 1s infinite;
+}
+.container p span.cursor.typing {
+  animation: none;
+}
+
+@keyframes blink {
+  0% {
+    background-color: #ccc;
+  }
+  49% {
+    background-color: #ccc;
+  }
+  50% {
+    background-color: transparent;
+  }
+  99% {
+    background-color: transparent;
+  }
+  100% {
+    background-color: #ccc;
+  }
+}
+/*** EFFECT5's Name Interaction ***/
+:root {
+  --animation-delay: 0;
+  --duration: 1500ms;
+  // --iterations: 1;
+}
+/* ••·•·•·•·•·•·•·•·••·•·•·•· */
+
+#name_5,
+#name_5::after {
+  animation-delay: var(--animation-delay, 2s);
+  animation-iteration-count: var(--iterations, 1);
+  animation-iteration-count: infinite;
+  animation-duration: var(--duration, 1000ms);
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+}
+
+#name_5 {
+  position: relative;
+  font-size: 11mm;
+  animation-name: clip-text;
+  color: #fff;
+  white-space: nowrap;
+  cursor: default;
+
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #f2f98b;
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+    pointer-events: none;
+    animation-name: text-revealer;
+  }
+}
+
+@keyframes clip-text {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes text-revealer {
+  0%,
+  50% {
+    transform-origin: 0 50%;
+  }
+
+  60%,
+  100% {
+    transform-origin: 100% 50%;
+  }
+
+  60% {
+    transform: scaleX(1);
+  }
+
+  100% {
+    transform: scaleX(0);
+  }
 }
 #neighbor_4 {
   font-style: italic;
   line-height: 0.9;
-  letter-spacing: -2px;
-  position: absolute;
+  letter-spacing: -1px;
+
   bottom: 5%;
-  font-size: 90%;
+  font-size: 1.5vw;
   //font-family: "Crimson Text", "sans serif";
   color: black;
-  padding-right: 4%;
-  right: 13px;
+  padding-bottom: 2%;
+  //right: 13px;
   animation: fadeIn 4s infinite alternate;
-  text-align: right;
+  text-align: center;
 }
 
 @keyframes fadeIn {
   from {
     opacity: 0;
   }
-}
-
-#name_4 {
-  color: black;
-  font-weight: 900;
-  font-family: "Roboto", sans-serif;
-  text-transform: uppercase;
-  font-size: 120%;
-  line-height: 110%;
-  padding: 1%;
-  //letter-spacing: -2px;
 }

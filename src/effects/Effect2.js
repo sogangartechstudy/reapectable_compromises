@@ -84,7 +84,7 @@ export class Effect2 extends Component {
     };
 
     var Because = () => {
-      var a = "Because you are in " + "'" + this.props.attendee + "'";
+      var a = ".... because you live in " + "'" + this.props.attendee + "'";
       document.getElementById("neighbor_2").innerHTML = a;
     };
 

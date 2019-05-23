@@ -171,7 +171,7 @@ export class Effect6 extends Component {
     })();
 
     var Because = () => {
-      var a = "Because you live in " + "'" + this.props.attendee + "'";
+      var a = ".... because you live in " + "'" + this.props.attendee + "'";
       document.getElementById("neighbor_6").innerHTML = a;
     };
 

@@ -8,8 +8,9 @@ h1 {
   display: inline-block;
   margin: 0 auto;
   font-weight: 900;
-  text-transform: uppercase;
+  //text-transform: uppercase;
   text-align: center;
+
   //opacity: 0.7;
   //font-size: 120%;
   //line-height: 80%;
@@ -38,7 +39,7 @@ h1 {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  animation: fadeIn 4s infinite alternate;
+  animation: fadeIn 10s infinite alternate;
 }
 
 @keyframes fadeIn {
@@ -51,26 +52,26 @@ div {
   display: block;
 }
 span:nth-child(1) {
-  font-size: 80%;
+  font-size: 3vw;
   line-height: 30%;
   //word-spacing: -1em;
   //text-indent: -0.33em;
 }
 span:nth-child(2) {
-  font-size: 80%;
+  font-size: 3vw;
   line-height: 30%;
   //word-spacing: -1em;
   // text-indent: -0.07em;
 }
 span:nth-child(3) {
-  font-size: 80%;
+  font-size: 3vw;
   line-height: 30%;
   //word-spacing: -1em;
 
   // text-indent: -0.07em;
 }
 span:nth-child(4) {
-  font-size: 80%;
+  font-size: 3vw;
   line-height: 30%;
   //word-spacing: -1em;
   // text-indent: -0.07em;
@@ -96,13 +97,13 @@ span:nth-child(5) {
   letter-spacing: -1px;
   position: absolute;
   bottom: 5%;
-  font-size: 90%;
+  font-size: 80%;
   //font-family: "Crimson Text", "sans serif";
   color: black;
-  padding: 4%;
+  padding-top: 4%;
   // right: 13px;
-  //animation: fadeIn 4s infinite alternate;
-  text-align: right;
+  animation: fadeIn 4s infinite alternate;
+  //text-align: right;
 }
 
 // @keyframes fadeIn {
@@ -112,16 +113,21 @@ span:nth-child(5) {
 // }
 
 #name_1 {
-  padding: 2%;
-  position: absolute;
   color: black;
-  font-weight: bold;
-  text-align: center;
-  font-weight: bold;
+  font-weight: 900;
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
-  font-size: 100%;
-  //padding: 20%;
-  letter-spacing: -2px;
-  //z-index: 2;
+  font-size: 3vw;
+  line-height: 110%;
+  padding: 1%;
+  // border-bottom: 5px solid black;
+}
+
+.card {
+  // width: 500px;
+  height: 65%;
+  //  height: 135px;
+  background-color: #ffffe6;
+  box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.65);
+  margin: 25px;
 }

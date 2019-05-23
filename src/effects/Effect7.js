@@ -22,7 +22,7 @@ export class Effect7 extends Component {
       c_1.toString();
     };
 
-    const roll01 = document.getElementById("roll01");
+    const roll01 = document.getElementById("roll02");
     var newTextDelay = 10;
 
     var textArray_1 = [];
@@ -52,15 +52,7 @@ export class Effect7 extends Component {
     var gradientAnimation = () => {
       // text animation
 
-      var t =
-        "......" +
-        c_1 +
-        ", You are " +
-        "'" +
-        word +
-        "'" +
-        "...." +
-        " aren't you? ";
+      var t = "......" + c_1 + ", I know you, you are " + "' " + word + " '";
 
       len += 1;
       newT += t.charAt(len);
@@ -83,8 +75,8 @@ export class Effect7 extends Component {
     };
 
     var Because = () => {
-      var a = "Because you are in " + "'" + this.props.attendee + "'";
-      document.getElementById("neighbor_2").innerHTML = a;
+      var a = ".... because you live in  " + "'" + this.props.attendee + "'";
+      document.getElementById("neighbor_7").innerHTML = a;
     };
 
     Because();
@@ -96,12 +88,12 @@ export class Effect7 extends Component {
   render() {
     return (
       <div className="effects effect7">
-        <div id="name_01">
-          <div id="roll01" />
+        <div id="name_07">
+          <div id="roll02" />
 
           {/* <canvas ref="canvas"> </canvas> */}
         </div>
-        <div id="neighbor_2" />
+        <div id="neighbor_7" />
       </div>
     );
   }

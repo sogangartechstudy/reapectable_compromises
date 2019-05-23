@@ -23,8 +23,7 @@ export class Effect1 extends Component {
       }
 
       nameArray_1.sort();
-      c = document.getElementById("name_1").innerHTML =
-        "Hi! 😁          " + nameArray_1.join(", ");
+      c = document.getElementById("name_1").innerHTML = nameArray_1.join(", ");
     };
 
     namepopup_1();
@@ -55,7 +54,7 @@ export class Effect1 extends Component {
     s1();
 
     var Because = () => {
-      var a = "Because you live in " + "'" + this.props.attendee + "'";
+      var a = ".... because you live in " + "' " + this.props.attendee + " '";
       document.getElementById("neighbor_1").innerHTML = a;
     };
 
@@ -66,13 +65,15 @@ export class Effect1 extends Component {
     return (
       <div className="effects effect1">
         <div id="name_1" />
-        <h1>
-          <span id="gra_01" />
-          <span id="gra_02" />
-          <span id="gra_03" />
-          <span id="gra_04" />
-          <span id="gra_05" />
-        </h1>
+        <div class="card">
+          <h1>
+            <span id="gra_01" />
+            <span id="gra_02" />
+            <span id="gra_03" />
+            <span id="gra_04" />
+            <span id="gra_05" />
+          </h1>
+        </div>
         <div id="neighbor_1" />
       </div>
     );

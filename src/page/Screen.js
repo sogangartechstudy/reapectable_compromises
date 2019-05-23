@@ -9,6 +9,7 @@ import Effect4 from "../effects/Effect4";
 import Effect5 from "../effects/Effect5";
 import Effect6 from "../effects/Effect6";
 import Effect7 from "../effects/Effect7";
+import Effect8 from "../effects/Effect8";
 
 import ReactDOM from "react-dom";
 import { readlink } from "fs";
@@ -119,7 +120,7 @@ export class Screen extends React.Component {
       })
       .text(getLabel);
 
-    const effectNum = 6;
+    const effectNum = 8;
     let divs = [];
     let effect = [];
 
@@ -185,6 +186,15 @@ export class Screen extends React.Component {
         case 6:
           return (
             <Effect7
+              attendee={data.children[cityNum].children[neigborNum].neighbor}
+              names={data.children[cityNum].children[neigborNum].names}
+              word={data.children[cityNum].children[neigborNum].word}
+            />
+          );
+          break;
+        case 7:
+          return (
+            <Effect8
               attendee={data.children[cityNum].children[neigborNum].neighbor}
               names={data.children[cityNum].children[neigborNum].names}
               word={data.children[cityNum].children[neigborNum].word}

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { $, jQuery } from "jquery";
 import data from "../data.json";
 import "./Effect5.scss";
 
@@ -21,8 +20,9 @@ export class Effect5 extends Component {
       textArray.push(this.props.word[i]);
     }
     textArray_name.sort();
-    document.getElementsByClassName("typed-name")[0].innerHTML =
-      textArray_name.join(", ") + " are ";
+    document.getElementById("typed-name_1").innerHTML = textArray_name.join(
+      ", "
+    );
 
     const typingDelay = 200;
     const erasingDelay = 100;
@@ -64,7 +64,7 @@ export class Effect5 extends Component {
     }
 
     var Because = () => {
-      var a = "Because you live in " + "'" + this.props.attendee + "'";
+      var a = ".... because you live in  " + "'" + this.props.attendee + "'";
       document.getElementById("neighbor_5").innerHTML = a;
     };
 
@@ -79,11 +79,11 @@ export class Effect5 extends Component {
   render() {
     return (
       <div className="effects effect5">
-        <div id="name_5" />
         <div class="container">
           <p>
-            <div class="typed-name" /> <span class="typed-text" />
-            <span class="cursor">&nbsp;</span>
+            <span class="typed-text" />
+            <span class="cursor">&nbsp;</span> {"means"}
+            <div id="typed-name_1" />
           </p>
         </div>
         <div id="neighbor_5" />

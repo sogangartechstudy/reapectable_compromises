@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { $, jQuery } from "jquery";
 import data from "../data.json";
 import "./Effect2.scss";
 

@@ -3,18 +3,11 @@
 }
 
 h1 {
-  font-family: arial;
-  //word-break: break-all;
   display: inline-block;
-  margin: 0 auto;
   font-weight: 900;
   //text-transform: uppercase;
   text-align: center;
 
-  //opacity: 0.7;
-  //font-size: 120%;
-  //line-height: 80%;
-  //padding: 300px 0;
   animation: background 20s linear infinite;
   background-size: 100% calc(100% - 2px);
   background: linear-gradient(
@@ -36,8 +29,6 @@ h1 {
   -webkit-text-fill-color: transparent;
 
   position: absolute;
-  top: 50%;
-  left: 50%;
   transform: translate(-50%, -50%);
   animation: fadeIn 10s infinite alternate;
 }
@@ -52,32 +43,32 @@ div {
   display: block;
 }
 span:nth-child(1) {
-  font-size: 3vw;
+  //font-size: 3vw;
   line-height: 30%;
   //word-spacing: -1em;
   //text-indent: -0.33em;
 }
 span:nth-child(2) {
-  font-size: 3vw;
+  //font-size: 3vw;
   line-height: 30%;
   //word-spacing: -1em;
   // text-indent: -0.07em;
 }
 span:nth-child(3) {
-  font-size: 3vw;
+  //font-size: 3vw;
   line-height: 30%;
   //word-spacing: -1em;
 
   // text-indent: -0.07em;
 }
 span:nth-child(4) {
-  font-size: 3vw;
+  //font-size: 3vw;
   line-height: 30%;
   //word-spacing: -1em;
   // text-indent: -0.07em;
 }
 span:nth-child(5) {
-  font-size: 80%;
+  //font-size: 80%;
   line-height: 30%;
   //word-spacing: -1em;
   // text-indent: -0.07em;
@@ -92,15 +83,15 @@ span:nth-child(5) {
   }
 }
 #neighbor_1 {
-  font-style: italic;
+  // font-style: italic;
   line-height: 0.9;
   letter-spacing: -1px;
   position: absolute;
-  bottom: 5%;
-  font-size: 80%;
+  //bottom: 5%;
+  //font-size: 80%;
   //font-family: "Crimson Text", "sans serif";
-  color: black;
-  padding-top: 4%;
+  //color: black;
+  //padding-top: 4%;
   // right: 13px;
   animation: fadeIn 4s infinite alternate;
   //text-align: right;

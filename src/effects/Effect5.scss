@@ -1,165 +1,165 @@
 .effect5 {
-  // position: relative;
-  // flex-direction: column;
-  // justify-content: center;
-  padding: 8%;
-}
+	// position: relative;
+	// flex-direction: column;
+	// justify-content: center;
+	padding: 8%;
 
-body {
-  font-family: "Roboto", sans-serif;
-  background-color: #000;
-  color: #eee;
-}
-.container {
-  height: 80vh;
-  //display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.container p {
-  font-size: 3rem;
-  padding: 0.5rem;
-  font-weight: bold;
-  letter-spacing: 0.1rem;
-  text-align: center;
-  overflow: hidden;
-}
-.container p span.typed-text {
-  // font-weight: normal;
-  text-transform: capitalize;
-  font-size: 3vw;
-  color: blue;
-  font-weight: 900;
-  font-family: "Crimson Text", "sans serif";
-  font-style: italic;
-  font-weight: normal;
-}
+	body {
+		font-family: "Roboto", sans-serif;
+		background-color: #000;
+		color: #eee;
+	}
+	.container {
+		height: 80vh;
+		//display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.container p {
+		font-size: 3rem;
+		padding: 0.5rem;
+		font-weight: bold;
+		letter-spacing: 0.1rem;
+		text-align: center;
+		overflow: hidden;
+	}
+	.container p span.typed-text {
+		// font-weight: normal;
+		text-transform: capitalize;
+		font-size: 3vw;
+		color: blue;
+		font-weight: 900;
+		font-family: "Crimson Text", "sans serif";
+		font-style: italic;
+		font-weight: normal;
+	}
 
-.container p div#typed-name_1 {
-  //font-weight: normal;
-  font-family: "Roboto", sans-serif;
-  font-weight: 900;
-  font-size: 110%;
-  line-height: 80%;
-  color: white;
-  position: relative;
-}
+	.container p div#typed-name_1 {
+		//font-weight: normal;
+		font-family: "Roboto", sans-serif;
+		font-weight: 900;
+		font-size: 110%;
+		line-height: 80%;
+		color: white;
+		position: relative;
+	}
 
-.container p span.cursor {
-  //display: inline-block;
-  //font-size: 200%;
-  background-color: #ccc;
-  margin-left: 0.1rem;
-  width: 3px;
-  animation: blink 1s infinite;
-}
-.container p span.cursor.typing {
-  animation: none;
-}
+	.container p span.cursor {
+		//display: inline-block;
+		//font-size: 200%;
+		background-color: #ccc;
+		margin-left: 0.1rem;
+		width: 3px;
+		animation: blink 1s infinite;
+	}
+	.container p span.cursor.typing {
+		animation: none;
+	}
 
-@keyframes blink {
-  0% {
-    background-color: #ccc;
-  }
-  49% {
-    background-color: #ccc;
-  }
-  50% {
-    background-color: transparent;
-  }
-  99% {
-    background-color: transparent;
-  }
-  100% {
-    background-color: #ccc;
-  }
-}
-/*** EFFECT5's Name Interaction ***/
-:root {
-  --animation-delay: 0;
-  --duration: 1500ms;
-  // --iterations: 1;
-}
-/* ••·•·•·•·•·•·•·•·••·•·•·•· */
+	@keyframes blink {
+		0% {
+			background-color: #ccc;
+		}
+		49% {
+			background-color: #ccc;
+		}
+		50% {
+			background-color: transparent;
+		}
+		99% {
+			background-color: transparent;
+		}
+		100% {
+			background-color: #ccc;
+		}
+	}
+	/*** EFFECT5's Name Interaction ***/
+	:root {
+		--animation-delay: 0;
+		--duration: 1500ms;
+		// --iterations: 1;
+	}
+	/* ••·•·•·•·•·•·•·•·••·•·•·•· */
 
-#name_5,
-#name_5::after {
-  animation-delay: var(--animation-delay, 2s);
-  animation-iteration-count: var(--iterations, 1);
-  animation-iteration-count: infinite;
-  animation-duration: var(--duration, 1000ms);
-  animation-fill-mode: both;
-  animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
-}
+	#name_5,
+	#name_5::after {
+		animation-delay: var(--animation-delay, 2s);
+		animation-iteration-count: var(--iterations, 1);
+		animation-iteration-count: infinite;
+		animation-duration: var(--duration, 1000ms);
+		animation-fill-mode: both;
+		animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+	}
 
-#name_5 {
-  position: relative;
-  font-size: 11mm;
-  animation-name: clip-text;
-  color: #fff;
-  white-space: nowrap;
-  cursor: default;
+	#name_5 {
+		position: relative;
+		font-size: 11mm;
+		animation-name: clip-text;
+		color: #fff;
+		white-space: nowrap;
+		cursor: default;
 
-  &::after {
-    content: "";
-    position: absolute;
-    z-index: 999;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #f2f98b;
-    transform: scaleX(0);
-    transform-origin: 0 50%;
-    pointer-events: none;
-    animation-name: text-revealer;
-  }
-}
+		&::after {
+			content: "";
+			position: absolute;
+			z-index: 999;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background-color: #f2f98b;
+			transform: scaleX(0);
+			transform-origin: 0 50%;
+			pointer-events: none;
+			animation-name: text-revealer;
+		}
+	}
 
-@keyframes clip-text {
-  from {
-    clip-path: inset(0 100% 0 0);
-  }
-  to {
-    clip-path: inset(0 0 0 0);
-  }
-}
+	@keyframes clip-text {
+		from {
+			clip-path: inset(0 100% 0 0);
+		}
+		to {
+			clip-path: inset(0 0 0 0);
+		}
+	}
 
-@keyframes text-revealer {
-  0%,
-  50% {
-    transform-origin: 0 50%;
-  }
+	@keyframes text-revealer {
+		0%,
+		50% {
+			transform-origin: 0 50%;
+		}
 
-  60%,
-  100% {
-    transform-origin: 100% 50%;
-  }
+		60%,
+		100% {
+			transform-origin: 100% 50%;
+		}
 
-  60% {
-    transform: scaleX(1);
-  }
+		60% {
+			transform: scaleX(1);
+		}
 
-  100% {
-    transform: scaleX(0);
-  }
-}
-#neighbor_5 {
-  font-style: italic;
-  line-height: 0.9;
-  letter-spacing: -1px;
-  position: absolute;
-  bottom: 5%;
-  font-size: 2vw;
-  //font-family: "Crimson Text", "sans serif";
-  color: black;
-  padding: 4%;
-  right: 13px;
-  animation: fadeIn 4s infinite alternate;
-}
+		100% {
+			transform: scaleX(0);
+		}
+	}
+	#neighbor_5 {
+		font-style: italic;
+		line-height: 0.9;
+		letter-spacing: -1px;
+		position: absolute;
+		bottom: 5%;
+		font-size: 2vw;
+		//font-family: "Crimson Text", "sans serif";
+		color: black;
+		padding: 4%;
+		right: 13px;
+		animation: fadeIn 4s infinite alternate;
+	}
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
+	@keyframes fadeIn {
+		from {
+			opacity: 0;
+		}
+	}
 }

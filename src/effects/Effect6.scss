@@ -1,102 +1,102 @@
 .effect6 {
-  padding: 10%;
-}
+	padding: 10%;
 
-.b-canvas {
-  position: relative;
-  flex-direction: column;
-  justify-content: center;
-}
+	.b-canvas {
+		position: relative;
+		flex-direction: column;
+		justify-content: center;
+	}
 
-h1 {
-  #title__bg {
-    position: relative;
-    font-family: "Chivo", sans-serif;
-    font-size: 60px;
-    line-height: normal;
-    color: #000000;
-    color: black;
-    display: inline;
-  }
-}
+	h1 {
+		#title__bg {
+			position: relative;
+			font-family: "Chivo", sans-serif;
+			font-size: 60px;
+			line-height: normal;
+			color: #000000;
+			color: black;
+			display: inline;
+		}
+	}
 
-#intro {
-  background-color: var(--orange);
-  font-size: 18px;
-  width: 180px;
-  padding: 10px;
-  font-family: "Carter One", cursive;
-  font-size: 22px;
-  border: var(--boxborder) solid var(--dark);
-}
+	#intro {
+		background-color: var(--orange);
+		font-size: 18px;
+		width: 180px;
+		padding: 10px;
+		font-family: "Carter One", cursive;
+		font-size: 22px;
+		border: var(--boxborder) solid var(--dark);
+	}
 
-h3 {
-  width: 200px;
-  padding-top: 10px;
-  font-family: "Modak", cursive;
-  font-size: 40px;
-  background-color: var(--blue);
-  border: var(--boxborder) solid var(--dark);
-}
+	h3 {
+		width: 200px;
+		padding-top: 10px;
+		font-family: "Modak", cursive;
+		font-size: 40px;
+		background-color: var(--blue);
+		border: var(--boxborder) solid var(--dark);
+	}
 
-#neighbor_6 {
-  font-style: italic;
-  line-height: 0.9;
-  letter-spacing: -1px;
-  position: absolute;
-  bottom: 5%;
-  font-size: 80%;
-  //font-family: "Crimson Text", "sans serif";
-  color: black;
-  padding: 5%;
-  //top: 40px;
-  right: 13px;
-  animation: fadeIn 4s infinite alternate;
-  text-align: center;
-}
+	#neighbor_6 {
+		font-style: italic;
+		line-height: 0.9;
+		letter-spacing: -1px;
+		position: absolute;
+		bottom: 5%;
+		font-size: 80%;
+		//font-family: "Crimson Text", "sans serif";
+		color: black;
+		padding: 5%;
+		//top: 40px;
+		right: 13px;
+		animation: fadeIn 4s infinite alternate;
+		text-align: center;
+	}
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-}
+	@keyframes fadeIn {
+		from {
+			opacity: 0;
+		}
+	}
 
-#name_6 {
-  color: black;
-  font-weight: bold;
-  font-family: "Roboto", sans-serif;
-  //text-transform: capitalize;
-  font-size: 120%;
-  padding-top: 5%;
-  letter-spacing: -2px;
-}
+	#name_6 {
+		color: black;
+		font-weight: bold;
+		font-family: "Roboto", sans-serif;
+		//text-transform: capitalize;
+		font-size: 120%;
+		padding-top: 5%;
+		letter-spacing: -2px;
+	}
 
-.dot {
-  font-family: "Roboto", sans-serif;
-  font-weight: bold;
-  position: absolute;
-  margin: auto;
-}
+	.dot {
+		font-family: "Roboto", sans-serif;
+		font-weight: bold;
+		position: absolute;
+		margin: auto;
+	}
 
-#test {
-  //background-color: lightblue;
-  position: absolute;
-  transform: translate(80px, 80px);
-  text-align: center;
-  left: 80px;
-  opacity: 0.4;
-}
+	#test {
+		//background-color: lightblue;
+		position: absolute;
+		transform: translate(80px, 80px);
+		text-align: center;
+		left: 80px;
+		opacity: 0.4;
+	}
 
-#round_01 {
-  font-family: "Crimson Text", "sans serif";
-  font-weight: bolder;
-  font-size: 200%;
-  color: yellow;
+	#round_01 {
+		font-family: "Crimson Text", "sans serif";
+		font-weight: bolder;
+		font-size: 200%;
+		color: yellow;
 
-  text-transform: capitalize;
-  font-size: 3vw;
-  line-height: 110%;
-  padding: 1%;
-  // border-bottom: 5px solid black;#name_1 {
-  text-align: center;
+		text-transform: capitalize;
+		font-size: 3vw;
+		line-height: 110%;
+		padding: 1%;
+		// border-bottom: 5px solid black;#name_1 {
+		text-align: center;
+	}
 }

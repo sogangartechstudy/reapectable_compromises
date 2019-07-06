@@ -1,54 +1,54 @@
 .effect3 {
-  padding: 2%;
-}
+	padding: 2%;
 
-#text_01,
-#text_02,
-#text_03 {
-  font-size: 260%;
-  font-family: "Crimson Text", "sans serif";
-  color: yellow;
-  line-height: 0.5;
-  padding: 0.15em;
-  position: relative;
-  font-style: italic;
-  letter-spacing: -4px;
-  //   font-weight: bold;
-}
-#neighbor_3 {
-  font-style: italic;
-  line-height: 0.9;
-  letter-spacing: -1px;
-  position: absolute;
-  bottom: 2%;
-  font-size: 80%;
-  //font-family: "Crimson Text", "sans serif";
-  color: black;
-  padding: 4%;
-  //right: 13px;
-  animation: fadeIn 4s infinite alternate;
-}
+	#text_01,
+	#text_02,
+	#text_03 {
+		font-size: 260%;
+		font-family: "Crimson Text", "sans serif";
+		color: yellow;
+		line-height: 0.5;
+		padding: 0.15em;
+		position: relative;
+		font-style: italic;
+		letter-spacing: -4px;
+		//   font-weight: bold;
+	}
+	#neighbor_3 {
+		font-style: italic;
+		line-height: 0.9;
+		letter-spacing: -1px;
+		position: absolute;
+		bottom: 2%;
+		font-size: 80%;
+		//font-family: "Crimson Text", "sans serif";
+		color: black;
+		padding: 4%;
+		//right: 13px;
+		animation: fadeIn 4s infinite alternate;
+	}
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-}
+	@keyframes fadeIn {
+		from {
+			opacity: 0;
+		}
+	}
 
-#name_3 {
-  color: black;
-  font-weight: 900;
-  font-family: "Roboto", sans-serif;
-  text-transform: uppercase;
-  font-size: 2vw;
-  line-height: 110%;
-  padding: 1%;
-  //letter-spacing: -2px;
-}
+	#name_3 {
+		color: black;
+		font-weight: 900;
+		font-family: "Roboto", sans-serif;
+		text-transform: uppercase;
+		font-size: 2vw;
+		line-height: 110%;
+		padding: 1%;
+		//letter-spacing: -2px;
+	}
 
-// .card {
-//   height: 20%;
-//   background-color: #ffffe6;
-//   box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.65);
-//   margin: 10px;
-// }
+	// .card {
+	//   height: 20%;
+	//   background-color: #ffffe6;
+	//   box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.65);
+	//   margin: 10px;
+	// }
+}

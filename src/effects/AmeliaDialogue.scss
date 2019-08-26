@@ -1,0 +1,22 @@
+.typeWriter {
+  color: #fff;
+  font-size: 200%;
+  opacity: 0.8;
+  display: inline;
+  position: absolute;
+  text-align: left;
+
+  //font-style: italic;
+  justify-content: center;
+  font-family: "Rubik", sans-serif;
+
+  padding-top: 15%;
+  padding-right: 10%;
+  padding-left: 30%;
+
+  font-weight: 400;
+  .wrap {
+    display: inline;
+    border-right: 0.08em solid white;
+  }
+}

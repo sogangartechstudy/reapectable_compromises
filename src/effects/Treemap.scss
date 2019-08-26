@@ -1,0 +1,62 @@
+.node {
+  overflow: visible;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  -webkit-transition: width 2s, height 4s; /* For Safari 3.1 to 6.0 */
+  transition: width 2s, height 4s;
+  border-style: solid;
+  border-color: white;
+  padding: 0.5%;
+  opacity: 1;
+}
+
+.node:hover {
+  width: 300px;
+  height: 300px;
+}
+
+.node0,
+.node1 {
+  display: none;
+}
+
+#screenTreemap {
+  height: 100%;
+}
+
+.message {
+  //height: 12%;
+  padding: {
+    //left: 30px;
+    top: 10px;
+  }
+  img {
+    height: 100px;
+    display: inline-block;
+    //  vertical-align: -25%;
+    vertical-align: -90%;
+    //margin-right: 20px;
+    padding-bottom: 2%;
+  }
+}
+#message p {
+  //padding-top: 2%;
+  word-break: break-word;
+  font-size: 1000%;
+  text-align: left;
+  //color: yellow;
+  display: inline-block;
+  opacity: 0.2;
+  z-index: -9;
+}
+
+.treemap {
+  position: relative;
+  height: 88%;
+  top: 10%;
+}
+
+#screen-con {
+  height: 100%;
+}

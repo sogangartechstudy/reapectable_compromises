@@ -1,0 +1,81 @@
+body {
+  background-color: white;
+  overflow: hidden;
+  padding: 2%;
+
+  //   background: linear-gradient(269deg, #1072ba, #642e92, #93298e);
+
+  background: black;
+  background-size: 500% 500%;
+
+  //   -webkit-animation: AnimationName 6s ease infinite;
+  //   -moz-animation: AnimationName 6s ease infinite;
+  //   animation: AnimationName 6s ease infinite;
+
+  @-webkit-keyframes AnimationName {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  @-moz-keyframes AnimationName {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  @keyframes AnimationName {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+}
+
+body :hover {
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  font-family: "Arial Rounded MT Bold";
+}
+
+#stage1,
+#stage1_1,
+#stage2,
+#stage-3 {
+  height: 100%;
+  width: 100%;
+}
+
+.message_1 {
+  //height: 12%;
+
+  img {
+    position: absolute;
+    height: 75px;
+    display: inline-block;
+    //  vertical-align: -25%;
+    vertical-align: -90%;
+    //margin-right: 20px;
+    padding-bottom: 2%;
+  }
+}

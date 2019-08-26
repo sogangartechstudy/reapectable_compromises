@@ -1,26 +1,47 @@
+@import url("https://fonts.googleapis.com/css?family=Rubik:500&display=swap");
+
 .effect-con {
-	width: 100%;
-	height: 100%;
-	.deck {
-		position: absolute;
-	}
-	.img-con {
-		width: 100%;
-		height: 100%;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-	}
-	.name {
-		position: absolute;
-		left: 20px;
-		height: 20px;
-		font-size: 30px;
-		color: white;
-		mix-blend-mode: difference;
-	}
-	img {
-		height: 80%;
-		width: auto;
-	}
+  width: 100%;
+  height: 100%;
+  .deck {
+    position: absolute;
+    word-break: break-all;
+  }
+  .img-con {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .name {
+    font-family: "Rubik", sans-serif;
+    // height: auto;
+    // font-size: 20px;
+    // color: black;
+    // width: auto;
+    // padding-right: 100px;
+    // white-space: nowrap;
+
+    //left: 20px;
+    height: auto;
+    font-size: 140%;
+    color: white;
+  }
+  .name-area {
+    position: relative;
+    //width: 90%;
+    height: auto;
+    //left: 10px;
+
+    // background-color: white;
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    border-color: white;
+    padding: 2px;
+  }
+  img {
+    height: 80%;
+    width: auto;
+  }
 }

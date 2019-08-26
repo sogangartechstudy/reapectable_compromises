@@ -1,0 +1,53 @@
+.geomap_2 {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: fixed;
+  z-index: -30;
+}
+
+.markers_text_2 {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  position: absolute;
+  z-index: -2;
+}
+
+.marker_2 {
+  position: relative;
+  //opacity: 0.8;
+  animation: glow 3s ease infinite;
+  -webkit-animation-name: glow;
+  //-webkit-animation-duration: 5s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: ease-in-out;
+}
+
+@-webkit-keyframes glow {
+  0% {
+    opacity: 0.25;
+  }
+  25% {
+    opacity: 0.5;
+  }
+  75% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0.25;
+  }
+}
+
+@keyframes glow {
+  0% {
+    opacity: 0.25;
+  }
+  25% {
+    opacity: 0.5;
+  }
+  75% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0.25;
+  }
+}

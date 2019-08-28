@@ -3,7 +3,6 @@ var BADREQUEST = Error("bad request (ex. invalid token)");
 var word_list = [];
 
 // from Amelia에서 받아오는 데이터 : 한 사람의 정보만을 받아오는 듯
-
 export async function getData(userData) {
   const token = userData;
   const url =
@@ -21,9 +20,8 @@ export async function getData(userData) {
       console.log("has data");
       const name = result[0].children[0].city[0].name;
       const neighborhood = result[0].children[0].city[0].neighborhood;
-      const attendee = result[0].children[0].city[0].attendee;
 
-      return { name: name, neighbor: neighborhood, attendee: attendee };
+      return { name: name, neighbor: neighborhood };
     } else {
       return NODATA;
     }
@@ -52,7 +50,6 @@ export async function sendData(neighborhood) {
     for (var i = 0; i < json[0].children.length; i++) {
       if (json[0].children[i].neighbor.includes(neighborhood)) {
         word_list.push(json[0].children[i].word);
-        alert(word_list);
         break;
       } else {
         startIndex += 1;
@@ -69,7 +66,9 @@ export async function sendData(neighborhood) {
 
 export async function retrieveAllUserData(Input) {
   var Amelia_json = getData(Input);
-  var jihyun_json = sendData(Amelia_json.neighbor);
+  //각 neighborhood 에 해당하는 word를 리턴한다.
+  var jihyun_json = await sendData(Amelia_json.neighbor);
+
   let singleData = await Amelia_json;
   console.log(word_list);
   console.log("singleData:", singleData);

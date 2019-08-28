@@ -6,7 +6,7 @@ import EffectMain from "../effects/EffectMain";
 import ReactDOM from "react-dom";
 import AmeliaDialogue from "../effects/AmeliaDialogue";
 import WorldMap_2 from "./WorldMap_2";
-import Fade from "react-reveal/Fade";
+import { retrieveAllUserData } from "../Backend/GetData";
 
 export class Treemap extends React.Component {
   constructor(props) {
@@ -17,23 +17,7 @@ export class Treemap extends React.Component {
       nowDialoge: "",
       showText: false
     };
-  }
-
-  _get() {
-    fetch(`https://amelia-test-df1b2.firebaseio.com/children.json`)
-      // fetch(`https://respectable-compromises.firebaseio.com//neighborhood.json`)
-      .then(res => {
-        if (res.status != 200) {
-          throw new Error(res.statusText);
-        }
-        return res.json();
-      })
-      .then(neighborhood => {
-        this.setState({
-          citys: Object.keys(neighborhood),
-          neighbor: neighborhood
-        });
-      });
+    // this.getToken = this.getToken.bind(this);
   }
 
   //   changing = () => {
@@ -49,12 +33,12 @@ export class Treemap extends React.Component {
       this.setState({ showText: true });
     }, 40000);
 
-    var data1;
-    d3.json("https://amelia-test-df1b2.firebaseio.com/children.json", function(
-      json
-    ) {
-      data1 = json; // console.log(data1[0].children[0].neighbor);
-    });
+    // var data1;
+    // d3.json("https://amelia-test-df1b2.firebaseio.com/children.json", function(
+    //   json
+    // ) {
+    //   data1 = json; // console.log(data1[0].children[0].neighbor);
+    // });
 
     // let num = 0;
     // this.changing();

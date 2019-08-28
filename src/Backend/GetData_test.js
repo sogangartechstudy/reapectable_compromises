@@ -1,6 +1,9 @@
+import data from "../data.json";
+
 var NODATA = Error("token holder has no usable data");
 var BADREQUEST = Error("bad request (ex. invalid token)");
 var word_list = [];
+var is_existed = true;
 
 // from Amelia에서 받아오는 데이터 : 한 사람의 정보만을 받아오는 듯
 
@@ -47,19 +50,16 @@ export async function sendData(neighborhood) {
   );
 
   if (response.ok) {
-    let startIndex = 0;
     let json = await response.json();
+
     for (var i = 0; i < json[0].children.length; i++) {
       if (json[0].children[i].neighbor.includes(neighborhood)) {
         word_list.push(json[0].children[i].word);
-        alert(word_list);
         break;
+      } else if ((is_existed = false && i == json[0].children.length)) {
+        return json[0].chiledren[0]["unknown but pittsburg"];
       } else {
-        startIndex += 1;
-      }
-
-      if (startIndex === json[0].children.length - 1) {
-        return json[0].children[0].neighbor["unknown but pittsburg!"];
+        continue;
       }
     }
   } else {

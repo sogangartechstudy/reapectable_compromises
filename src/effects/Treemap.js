@@ -20,6 +20,23 @@ export class Treemap extends React.Component {
     // this.getToken = this.getToken.bind(this);
   }
 
+  _get() {
+    fetch(`https://amelia-test-df1b2.firebaseio.com/children.json`)
+      // fetch(`https://respectable-compromises.firebaseio.com//neighborhood.json`)
+      .then(res => {
+        if (res.status != 200) {
+          throw new Error(res.statusText);
+        }
+        return res.json();
+      })
+      .then(neighborhood => {
+        this.setState({
+          citys: Object.keys(neighborhood),
+          neighbor: neighborhood
+        });
+      });
+  }
+
   //   changing = () => {
   //     let num = 0;
   //     setInterval(() => {
@@ -33,12 +50,12 @@ export class Treemap extends React.Component {
       this.setState({ showText: true });
     }, 40000);
 
-    // var data1;
-    // d3.json("https://amelia-test-df1b2.firebaseio.com/children.json", function(
-    //   json
-    // ) {
-    //   data1 = json; // console.log(data1[0].children[0].neighbor);
-    // });
+    var data1;
+    d3.json("https://amelia-test-df1b2.firebaseio.com/children.json", function(
+      json
+    ) {
+      data1 = json; // console.log(data1[0].children[0].neighbor);
+    });
 
     // let num = 0;
     // this.changing();

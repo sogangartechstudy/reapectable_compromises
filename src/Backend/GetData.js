@@ -1,9 +1,8 @@
-var posts = [];
 var NODATA = Error("token holder has no usable data");
 var BADREQUEST = Error("bad request (ex. invalid token)");
-var NEIGHBORHOODS = [];
+var word_list = [];
 
-// from Amelia에서 받아오는 데이터
+// from Amelia에서 받아오는 데이터 : 한 사람의 정보만을 받아오는 듯
 
 export async function getData(userData) {
   const token = userData;
@@ -24,7 +23,7 @@ export async function getData(userData) {
       const neighborhood = result[0].children[0].city[0].neighborhood;
       const attendee = result[0].children[0].city[0].attendee;
 
-      return { neighbor: this.neighborhood, attendee: this.attendee };
+      return { name: name, neighbor: neighborhood, attendee: attendee };
     } else {
       return NODATA;
     }
@@ -39,12 +38,6 @@ export async function getData(userData) {
   }
 }
 
-export async function retrieveAllUserData(Input) {
-  var json = getData(Input);
-  let singleData = await json;
-  console.log("singleData:", singleData);
-}
-
 //jihyun server에서 가져오는 데이터 :WORD와 NEIGHBORHOOD를 키-VALUE로 같이 저장할 것
 
 export async function sendData(neighborhood) {
@@ -54,11 +47,25 @@ export async function sendData(neighborhood) {
 
   if (response.ok) {
     let json = await response.json();
+
     for (var i = 0; i < json[0].children.length; i++) {
-      NEIGHBORHOODS.push(json[0].children[i].neighbor);
+      if (json[0].children[i].neighbor == neighborhood) {
+        word_list.push(json[0].children[i].word);
+        break;
+      } else {
+        continue;
+      }
     }
-    console.log(NEIGHBORHOODS);
   } else {
     alert("HTTP-Error: " + response.status);
   }
 }
+
+//Neighborhood와 word를 비교해서 맞는 word를 리턴해준다.
+
+// export async function retrieveAllUserData(Input) {
+//   var Amlia_json = getData(Input);
+//   let singleData = await json;
+
+//   console.log("singleData:", singleData);
+// }

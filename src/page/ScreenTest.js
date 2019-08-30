@@ -33,18 +33,18 @@ export class ScreenTest extends React.Component {
       $("div[id='stage1'").css({
         display: "none"
       });
-    }, 1000); //64000
+    }, 55000); //64000
 
     setTimeout(() => {
       ReactDOM.render(<ScreenNames />, document.querySelector("#stage3"));
       $("div[id='stage2'").css({
         display: "none"
       });
-    }, 100); //80000
+    }, 125000); //80000
 
     setTimeout(() => {
       window.location.reload();
-    }, 200000);
+    }, 190000);
   }
 
   render() {

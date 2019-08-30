@@ -2,35 +2,6 @@
   "main": "all",
   "children": [
     {
-      "city": "Newyork",
-      "children": [
-        {
-          "neighbor": "Allegsdfsdfsheny West",
-          "attendee": 8,
-          "names": [
-            "Kenny",
-            "Frenzi",
-            "Sandy",
-            "slimd",
-            "lily",
-            "nora",
-            "James",
-            "semi"
-          ],
-          "word": [
-            "insdfsdfvesting",
-            "losdfsdfts",
-            "wosdfsdfrse",
-            "weisdfsdfrd",
-            "cassdfsdft",
-            "rasdfsdilroad",
-            "razed",
-            "hisdfsdfstoric",
-            "facilsdfsdfities",
-            "expenssdfsdfive"
-          ]
-        }
-      ],
       "city": "Pittsburgh",
       "children": [
         {
@@ -45,31 +16,6 @@
             "nora",
             "James",
             "semi"
-          ],
-          "word": [
-            "investing",
-            "lots",
-            "worse",
-            "weird",
-            "cast",
-            "railroad",
-            "razed",
-            "historic",
-            "facilities",
-            "expensive"
-          ]
-        },
-        {
-          "neighbor": "Busan",
-          "attendee": 7,
-          "names": [
-            "Kenny",
-            "Frenzi",
-            "Sandy",
-            "slimd",
-            "lily",
-            "nora",
-            "James"
           ],
           "word": [
             "investing",
@@ -115,24 +61,6 @@
           "neighbor": "Beechview",
           "attendee": 2,
           "names": ["Fred", "Michael"],
-          "word": [
-            "build",
-            "casper",
-            "festivals",
-            "rise",
-            "boom",
-            "throughout",
-            "languages",
-            "possibly",
-            "state",
-            "manicured"
-          ]
-        },
-
-        {
-          "neighbor": "Seoul",
-          "attendee": 4,
-          "names": ["Fred", "Michael", "lena", "pegi"],
           "word": [
             "build",
             "casper",

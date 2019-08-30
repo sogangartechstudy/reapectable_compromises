@@ -1,7 +1,7 @@
 body {
   background-color: white;
   overflow: hidden;
-  padding: 2%;
+  padding: 1%;
 
   //   background: linear-gradient(269deg, #1072ba, #642e92, #93298e);
 
@@ -16,39 +16,46 @@ body {
     0% {
       background-position: 0% 50%;
     }
+
     50% {
       background-position: 100% 50%;
     }
+
     100% {
       background-position: 0% 50%;
     }
   }
+
   @-moz-keyframes AnimationName {
     0% {
       background-position: 0% 50%;
     }
+
     50% {
       background-position: 100% 50%;
     }
+
     100% {
       background-position: 0% 50%;
     }
   }
+
   @keyframes AnimationName {
     0% {
       background-position: 0% 50%;
     }
+
     50% {
       background-position: 100% 50%;
     }
+
     100% {
       background-position: 0% 50%;
     }
   }
 }
 
-body :hover {
-}
+body :hover {}
 
 * {
   margin: 0;
@@ -71,7 +78,7 @@ body :hover {
 
   img {
     position: absolute;
-    height: 75px;
+    height: 9%;
     display: inline-block;
     //  vertical-align: -25%;
     vertical-align: -90%;

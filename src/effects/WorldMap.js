@@ -13,6 +13,8 @@ class WorldMap extends Component {
       words: [],
       rotation: 0,
       worldData: [],
+      w: window.innerWidth,
+      h: window.innerHeight,
       cities: [
         {
           name: "Tokyo",
@@ -40,7 +42,7 @@ class WorldMap extends Component {
   projection() {
     return geoOrthographic()
       .scale(600)
-      .translate([1782 / 2, 1250 / 2])
+      .translate([this.state.w / 2 - 50, this.state.h / 2])
       .rotate([this.state.rotation]);
   }
 
@@ -109,9 +111,9 @@ class WorldMap extends Component {
       <div id="screenMap">
         <div className="geomap">
           <svg
-            width={window.innerWidth}
-            height={window.innerHeight}
-            viewBox="0 0 1782 1250"
+            width={this.state.w}
+            height={this.state.h}
+            viewBox={`0 0 ${this.state.w} ${this.state.h}`}
           >
             <g className="r">
               {this.state.worldData.map((d, i) => (

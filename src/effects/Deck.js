@@ -8,17 +8,17 @@ import "./Deck.scss";
 
 const to = i => ({
   x: 0,
-  y: 0,
-  scale: 1,
+  y: 150,
+  scale: 1.5,
   rot: 0,
   delay: i * 10000 * Math.random() * 1.1,
   opacity: 0
 });
 const from = i => ({
-  x: Math.random() < 0.5 ? -1000 : 1000,
+  x: Math.random() < 0.5 ? -8000 : 5000,
   rot: 0,
   scale: 0,
-  y: -1000,
+  y: -2000,
   opacity: 1
 });
 
@@ -50,7 +50,7 @@ function Deck(urls) {
       style={{
         transform: interpolate(
           [x, y],
-          (x, y) => `translate3d(${x}px,${y}px,0)`
+          (x, y) => `translate3d(${x - 200}px,${y}px,0)`
         ),
         opacity: opacity
           .interpolate({ range: [0, 0.01, 1], output: [0, 0.99, 1.0] })

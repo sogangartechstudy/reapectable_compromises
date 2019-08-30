@@ -13,17 +13,20 @@ class WorldMap_2 extends Component {
       words: [],
       worldData: [],
       showText: false,
+      w: window.innerWidth,
+      h: window.innerHeight,
+
       cities: [
-        {
-          name: "Pittsburgh",
-          coordinates: [-79.9959, 40.4406],
-          population: 30
-        },
-        {
-          name: "Korea",
-          coordinates: [128.4179, 36.7783],
-          population: 2
-        }
+        // {
+        //   name: "Pittsburgh",
+        //   coordinates: [-79.9959, 40.4406],
+        //   population: 30
+        // },
+        // {
+        //   name: "Korea",
+        //   coordinates: [128.4179, 36.7783],
+        //   population: 2
+        // }
         // {
         //   name: "1",
         //   coordinates: [-80.9959, 41.4406],
@@ -87,10 +90,11 @@ class WorldMap_2 extends Component {
       ]
     };
   }
+
   projection() {
     return geoMercator()
-      .scale(300)
-      .translate([1782 / 2, 1250 / 2]);
+      .scale(500)
+      .translate([this.state.w / 2, this.state.h / 2]);
   }
 
   // changing = () => {
@@ -148,10 +152,15 @@ class WorldMap_2 extends Component {
     //   });
     //   // this.getDistance();
     // });
+    var color_1 = Math.random() * 100;
     return (
       <div id="screenMap_2">
         <div className="geomap_2">
-          <svg width={1782} height={1250} viewBox="0 0 1782 1250">
+          <svg
+            width={this.state.w - 120}
+            height={this.state.h}
+            viewBox={`0 0 ${this.state.w} ${this.state.h}`}
+          >
             <g className="r_2">
               {this.state.worldData.map((d, i) => (
                 <path
@@ -160,8 +169,9 @@ class WorldMap_2 extends Component {
                   className="country_2"
                   fill={"black"}
                   stroke-width={10}
-                  // fill={`rgba(233,233,233,${(1 / this.state.worldData.length) *
-                  //   i})`}
+                  fill={`rgba(${color_1},233,233,${(1 /
+                    this.state.worldData.length) *
+                    i})`}
                   opacity={this.state.opacity}
                   stroke="cyan"
                   strokeWidth={0.5}

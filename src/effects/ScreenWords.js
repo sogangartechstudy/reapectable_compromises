@@ -84,7 +84,7 @@ export class ScreenWords extends React.Component {
             // bottom: bottom,
 
             "z-index": 300,
-            "font-size": Math.floor(Math.random() * 330) + "%"
+            "font-size": Math.floor(Math.random() * 380) + "%"
           });
       }
 

@@ -23,12 +23,12 @@
   background-repeat: no-repeat;
   background-position: center center;
   width: 100%;
-  max-width: 500px;
+  max-width: 1000px;
   height: 80%;
   // max-height: 500px;
   will-change: transform;
   //background-color: #1e1e1e;
-  display: flex;
+  //display: flex;
   //justify-content: center;
   align-items: center;
   //box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
@@ -53,8 +53,7 @@
 
 .word-container {
   position: relative;
-  font-size: 800%;
-
+  //font-size: 2000%;
   justify-content: center;
   display: flex;
 }

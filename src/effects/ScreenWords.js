@@ -4,7 +4,7 @@ import data from "../data.json";
 import $ from "jquery";
 import Fade from "react-reveal/Fade";
 import WorldMap_1 from "./WorldMap_1";
-import AmeliaDialogue from "../effects/AmeliaDialogue";
+import { retrieveAllUserData } from "../Backend/GetData";
 
 export class ScreenWords extends React.Component {
   constructor(props) {

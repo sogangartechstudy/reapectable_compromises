@@ -1,0 +1,250 @@
+{
+  "treemap": {
+    "main": "all",
+    "children": [
+      {
+        "city": "Pittsburgh",
+        "children": [
+          {
+            "neighbor": "Allegheny West",
+            "attendee": 8,
+            "names": [
+              "Kenny",
+              "Frenzi",
+              "Sandy",
+              "slimd",
+              "lily",
+              "nora",
+              "James",
+              "semi"
+            ],
+            "word": [
+              "investing",
+              "lots",
+              "worse",
+              "weird",
+              "cast",
+              "railroad",
+              "razed",
+              "historic",
+              "facilities",
+              "expensive"
+            ]
+          },
+          {
+            "neighbor": "Busan",
+            "attendee": 7,
+            "names": [
+              "Kenny",
+              "Frenzi",
+              "Sandy",
+              "slimd",
+              "lily",
+              "nora",
+              "James"
+            ],
+            "word": [
+              "investing",
+              "lots",
+              "worse",
+              "weird",
+              "cast",
+              "railroad",
+              "razed",
+              "historic",
+              "facilities",
+              "expensive"
+            ]
+          },
+          {
+            "neighbor": "Westside",
+            "attendee": 9,
+            "names": [
+              "Kenny",
+              "Frenzi",
+              "Sandy",
+              "slimd",
+              "lily",
+              "nora",
+              "James",
+              "semi",
+              "Endy"
+            ],
+            "word": [
+              "investing",
+              "lots",
+              "worse",
+              "weird",
+              "cast",
+              "railroad",
+              "razed",
+              "historic",
+              "facilities",
+              "expensive"
+            ]
+          },
+          {
+            "neighbor": "Beechview",
+            "attendee": 2,
+            "names": [
+              "Fred",
+              "Michael"
+            ],
+            "word": [
+              "build",
+              "casper",
+              "festivals",
+              "rise",
+              "boom",
+              "throughout",
+              "languages",
+              "possibly",
+              "state",
+              "manicured"
+            ]
+          },
+          {
+            "neighbor": "Seoul",
+            "attendee": 4,
+            "names": [
+              "Fred",
+              "Michael",
+              "lena",
+              "pegi"
+            ],
+            "word": [
+              "build",
+              "casper",
+              "festivals",
+              "rise",
+              "boom",
+              "throughout",
+              "languages",
+              "possibly",
+              "state",
+              "manicured"
+            ]
+          },
+          {
+            "neighbor": "Forest Hills",
+            "attendee": 5,
+            "names": [
+              "Michael",
+              "Harry",
+              "Somi",
+              "Sehi",
+              "July"
+            ],
+            "word": [
+              "hopes",
+              "dad",
+              "1990",
+              "neighborhoods",
+              "kids",
+              "downtown",
+              "warm 19th",
+              "stink",
+              "responsive"
+            ]
+          },
+          {
+            "neighbor": "Garfield",
+            "attendee": 1,
+            "names": [
+              "Zach"
+            ],
+            "word": [
+              "family",
+              "pennsylvania",
+              "moved",
+              "appreciate",
+              "homeownership",
+              "replacement",
+              "joke",
+              "though",
+              "never",
+              "stolen"
+            ]
+          },
+          {
+            "neighbor": "Mt Lebanon",
+            "attendee": 1,
+            "names": [
+              "Jackie"
+            ],
+            "word": [
+              "leisurely",
+              "spoon",
+              "1969",
+              "land",
+              "mission",
+              "year",
+              "others",
+              "developed",
+              "upon",
+              "got"
+            ]
+          },
+          {
+            "neighbor": "Northside",
+            "attendee": 2,
+            "names": [
+              "Nicole",
+              "Allison"
+            ],
+            "word": [
+              "perry",
+              "houdini",
+              "entirely",
+              "mostly",
+              "coffee",
+              "uprooted",
+              "garbage",
+              "degrees",
+              "specific"
+            ]
+          },
+          {
+            "neighbor": "Southside Slops",
+            "attendee": 2,
+            "names": [
+              "Jeffrey",
+              "Tami"
+            ],
+            "word": [
+              "gym",
+              "chances",
+              "exist",
+              "rate",
+              "nothing",
+              "alive",
+              "feature",
+              "tiny",
+              "rise",
+              "serenity"
+            ]
+          },
+          {
+            "neighbor": "Swissvale",
+            "attendee": 1,
+            "names": [
+              "Maggie"
+            ],
+            "word": [
+              "field",
+              "cafes",
+              "wonderful",
+              "bed",
+              "build",
+              "soldier",
+              "hills",
+              "hazard",
+              "electricity",
+              "communities"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

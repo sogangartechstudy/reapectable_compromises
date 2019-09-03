@@ -6,7 +6,7 @@ import EffectMain from "../effects/EffectMain";
 import ReactDOM from "react-dom";
 import AmeliaDialogue from "../effects/AmeliaDialogue";
 import WorldMap_2 from "./WorldMap_2";
-import { retrieveAllUserData } from "../Backend/GetJson";
+//import { retrieveAllUserData as data } from "../Backend/GetJson_test";
 
 export class Treemap extends React.Component {
   constructor(props) {
@@ -46,7 +46,6 @@ export class Treemap extends React.Component {
 
   componentDidMount() {
     // this._get();
-    retrieveAllUserData();
 
     setTimeout(() => {
       this.setState({ showText: true });

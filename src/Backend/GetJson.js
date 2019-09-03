@@ -1,12 +1,14 @@
-import data from "../data.json";
-import { async } from "q";
-import * as fs from "browserify-fs";
-
-// // TODO: year-month-day 공연 날짜에 맞춰 바꾸기
-
+//neighborhood_data가져오는 곳
 var obj = {
   main: "all",
-  children: []
+  children: [
+    {
+      city: "a ",
+      children: [
+        { neighbor: "a", attendee: 1, names: ["a", "b", "c"], word: ["a"] }
+      ]
+    }
+  ]
 };
 
 export async function getData(YEAR, MONTH, DAY) {
@@ -16,98 +18,67 @@ export async function getData(YEAR, MONTH, DAY) {
 
   if (response.ok) {
     //Json 파일로 parsing
-    let json_ = await response.json();
-    //각 array에 word array를 붙여서 리턴 --> data.json파일로 만들기 위해
-    for (var i = 0; i < json_.children.length; i++) {
-      for (var j = 0; j < json_.children[0].children.length; j++) {
-        let word_ = getReady(json_.children[i].children[j].neighborhood);
-
-        //각 neighborhood 호출 TODO: neighborhood가 두개인 경우 호출을 못하는 듯
-
-        json_.children[i].children[j].word = word_;
+    let json_ = response.json();
+    console.log(json_);
+    let result = await json_;
+    for (var i = 0; i < result.children.length; i++) {
+      for (var j = 0; j < result.children[i].children.length; j++) {
+        getReady(YEAR, MONTH, DAY, result.children[i].children[j].neighborhood);
+        // let word_ = getReady(json_.children[i].children[j].neighborhood);
+        // json_.children[i].children[j].word = word_;
+        // console.log(json_.children[i].children[j].word);
+        return {
+          neighbor: result.children[i].children[j].neighborhood,
+          attendee: result.children[i].children[j].attendee
+        };
       }
     }
-    return json_.children;
   } else {
     console.log("HTTP-Error_1: " + response.status);
   }
 }
 
+//neighborhood_data를 보내는 곳
 // //jihyun server에서 가져오는 데이터
 // //Neighborhood와 word를 비교해서 맞는 word를 리턴해준다.
 
-export async function getReady(neighborhood) {
+export async function getReady(YEAR, MONTH, DAY, neighborhood) {
   let response = await fetch(
     `http://52.42.89.244:5000/outputs?neighbor=unknown`
   );
 
   if (response.ok) {
     let json = await response.json();
-    //console.log(json.children);
-    //sendData(neighborhood);
-
-    return json.children;
+    let word = json.children;
+    let string_word = JSON.stringify(word);
+    //console.log(string_word);
+    // getData_post(YEAR, MONTH, DAY, word);
   }
 }
 
-export async function sendData(neighborhood) {
-  const word2vec = {
-    neighbor: neighborhood
-  };
-  let response = await fetch(`http://52.42.89.244:5000/estimator`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(word2vec)
-  });
+// export async function getData_post(YEAR, MONTH, DAY, word) {
+//   let response = await fetch(
+//     `https://staging.projectamelia.ai/pusherman/respectable_compromises/neighborhoods?showdate=${YEAR}-${MONTH}-${DAY}`,
+//     {
+//       method: "POST",
+//       // mode: "no-cors",
+//       headers: {
+//         "Content-Type": "application/json;charset=utf-8"
+//       },
+//       body: word
+//     }
+//   ); //should be changed after launching the show
 
-  if (response.ok) {
-    // let startIndex = 0;
-    let json = await response.json();
-
-    //console.log(json);
-  } else {
-    ///만약 data에 들어있는 파일 아니면, data.json파일에서 불러올 것
-    console.log("HTTP-Error_2: " + response.status);
-  }
-}
+//   if (response.ok) {
+//     let json = await response.json();
+//     console.log(json);
+//   } else {
+//     console.log("HTTP-Error_1: " + response.status);
+//   }
+// }
 
 export function retrieveAllUserData() {
   //Pusherman에서 API받아옴
 
-  getData("2019", "08", "20")
-    .then(element => {
-      obj.children.push(element);
-      console.log(obj);
-    })
-    .then(() => {
-      var json = JSON.stringify(obj);
-      //console.log(json);
-      fs.mkdir("/data", function() {
-        fs.writeFile("/data/data.json", json, "utf-8", function() {
-          fs.readFile("/data/data.json", "utf-8", function(err, data) {
-            console.log(data);
-          });
-        });
-      });
-    });
-
-  //   var temp = obj;
-  //   console.log(temp);
-
-  //   var json = JSON.stringify(obj, ["main", "children"]);
-  //   console.log(json);
-  //   fs.readFile("data.json", function(err, content) {
-  //     if (err) throw err;
-  //     var parseJson = JSON.parse(content);
-  //     for (i = 0; i < 11; i++) {
-  //       parseJson.table.push({ id: i, square: i * i });
-  //     }
-  //     fs.writeFile("data.json", JSON.stringify(parseJson), function(err) {
-  //       if (err) throw err;
-  //     });
-  //   });
+  getData("2019", "08", "20");
 }
-
-export function findNeighbor() {}

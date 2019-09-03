@@ -1,0 +1,129 @@
+{
+  "treemap": {
+    "main": "all",
+    "children": [
+      {
+        "city": "Pittsburgh",
+        "children": [
+          {
+            "id": 1,
+            "neighbor": "Allegheny West",
+            "attendee": 8,
+            "names": [
+              "Kenny",
+              "Frenzi",
+              "Sandy",
+              "slimd",
+              "lily",
+              "nora",
+              "James",
+              "semi"
+            ],
+            "word": [
+              "investing",
+              "lots",
+              "worse",
+              "weird",
+              "cast",
+              "railroad",
+              "razed",
+              "historic",
+              "facilities",
+              "expensive"
+            ]
+          },
+          {
+            "id": 2,
+            "neighbor": "Busan",
+            "attendee": 7,
+            "names": [
+              "Kenny",
+              "Frenzi",
+              "Sandy",
+              "slimd",
+              "lily",
+              "nora",
+              "James"
+            ],
+            "word": [
+              "investing",
+              "lots",
+              "worse",
+              "weird",
+              "cast",
+              "railroad",
+              "razed",
+              "historic",
+              "facilities",
+              "expensive"
+            ]
+          },
+          {
+            "id": 3,
+            "neighbor": "Westside",
+            "attendee": 9,
+            "names": [
+              "Kenny",
+              "Frenzi",
+              "Sandy",
+              "slimd",
+              "lily",
+              "nora",
+              "James",
+              "semi",
+              "Endy"
+            ],
+            "word": [
+              "investing",
+              "lots",
+              "worse",
+              "weird",
+              "cast",
+              "railroad",
+              "razed",
+              "historic",
+              "facilities",
+              "expensive"
+            ]
+          },
+          {
+            "id": 4,
+            "neighbor": "Beechview",
+            "attendee": 2,
+            "names": ["Fred", "Michael"],
+            "word": [
+              "build",
+              "casper",
+              "festivals",
+              "rise",
+              "boom",
+              "throughout",
+              "languages",
+              "possibly",
+              "state",
+              "manicured"
+            ]
+          },
+
+          {
+            "neighbor": "Seoul",
+            "attendee": 4,
+            "names": ["Fred", "Michael", "lena", "pegi"],
+            "word": [
+              "build",
+              "casper",
+              "festivals",
+              "rise",
+              "boom",
+              "throughout",
+              "languages",
+              "possibly",
+              "state",
+              "manicured"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

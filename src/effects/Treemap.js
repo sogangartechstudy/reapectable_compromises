@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import d3 from "d3";
 import "./Treemap.scss";
-import data from "../data.json";
+//import data from "../data.json";
 import EffectMain from "../effects/EffectMain";
 import ReactDOM from "react-dom";
 import AmeliaDialogue from "../effects/AmeliaDialogue";
 import WorldMap_2 from "./WorldMap_2";
-//import { retrieveAllUserData as data } from "../Backend/GetJson_test";
+import { retrieveAllUserData } from "../Backend/GetJson_test";
 
 export class Treemap extends React.Component {
   constructor(props) {
@@ -21,7 +21,8 @@ export class Treemap extends React.Component {
       day: "10",
       attendee: 1
     };
-    // this.getToken = this.getToken.bind(this);
+
+    // this.gettreeData = this.gettreeData.bind(this);
   }
 
   // _get() {
@@ -44,8 +45,14 @@ export class Treemap extends React.Component {
   //     });
   // }
 
+  // async gettreeData() {
+  //   await retrieveAllUserData();
+  // }
+
   componentDidMount() {
-    // this._get();
+    // var data = this.gettreeData();
+    var data = retrieveAllUserData();
+    console.log(data.children.length);
 
     setTimeout(() => {
       this.setState({ showText: true });
@@ -139,7 +146,8 @@ export class Treemap extends React.Component {
           return (
             <EffectMain
               attendee={data.children[cityNum].children[neigborNum].neighbor}
-              names={data.children[cityNum].children[neigborNum].names}
+              // names={data.children[cityNum].children[neigborNum].names}
+              names={["sam", "sam"]}
               word={data.children[cityNum].children[neigborNum].word}
             />
           );

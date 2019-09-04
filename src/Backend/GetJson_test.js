@@ -1,11 +1,20 @@
 import { async } from "q";
 // // TODO: year-month-day 공연 날짜에 맞춰 받아올 것
 
-var data = {};
-
-var obj = {
+var data = {
   main: "all",
-  children: []
+  children: [
+    {
+      city: "pittsburg",
+      children: [
+        {
+          neighbor: "a",
+          attendee: 13,
+          word: ["love"]
+        }
+      ]
+    }
+  ]
 };
 
 export async function getData(YEAR, MONTH, DAY) {
@@ -23,7 +32,7 @@ export async function getData(YEAR, MONTH, DAY) {
         var attendee = json_.children[i].children[j].attendee;
         var neighbor = json_.children[i].children[j].neighborhood;
 
-        obj.children.push({
+        data.children.push({
           city: city,
           children: [
             {
@@ -36,7 +45,7 @@ export async function getData(YEAR, MONTH, DAY) {
       }
     }
     // console.log(obj.children);
-    return obj.children;
+    return data.children;
   } else {
     console.log("HTTP-Error_1: " + response.status);
   }
@@ -87,13 +96,13 @@ export async function sendData(neighborhood) {
 export async function getNeighbor(neighborhood, elements) {
   // console.log(`${neighborhood}`, elements);
   //console.log(obj.children.length);
-  for (var i = 0; i < obj.children.length; i++) {
-    if (obj.children[i].children[0].neighbor === neighborhood) {
-      obj.children[i].children[0].word.push(elements);
+  for (var i = 0; i < data.children.length; i++) {
+    if (data.children[i].children[0].neighbor === neighborhood) {
+      data.children[i].children[0].word.push(elements);
     }
   }
 
-  data = obj;
+  return data;
 }
 
 export function retrieveAllUserData() {
@@ -102,4 +111,6 @@ export function retrieveAllUserData() {
   getData("2019", "08", "20").then(elements => {
     elements.forEach(element => getReady(element.children[0].neighbor));
   });
+  console.log(data.children);
+  return data;
 }

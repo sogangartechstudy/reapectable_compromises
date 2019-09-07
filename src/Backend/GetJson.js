@@ -1,15 +1,5 @@
-//neighborhood_data가져오는 곳
-var obj = {
-  main: "all",
-  children: [
-    {
-      city: "a ",
-      children: [
-        { neighbor: "a", attendee: 1, names: ["a", "b", "c"], word: ["a"] }
-      ]
-    }
-  ]
-};
+import { async } from "q";
+// // TODO: year-month-day 공연 날짜에 맞춰 받아올 것
 
 export async function getData(YEAR, MONTH, DAY) {
   let response = await fetch(
@@ -17,68 +7,83 @@ export async function getData(YEAR, MONTH, DAY) {
   ); //should be changed after launching the show
 
   if (response.ok) {
+    var data = {
+      main: "all",
+      children: []
+    };
     //Json 파일로 parsing
-    let json_ = response.json();
-    console.log(json_);
-    let result = await json_;
-    for (var i = 0; i < result.children.length; i++) {
-      for (var j = 0; j < result.children[i].children.length; j++) {
-        getReady(YEAR, MONTH, DAY, result.children[i].children[j].neighborhood);
-        // let word_ = getReady(json_.children[i].children[j].neighborhood);
-        // json_.children[i].children[j].word = word_;
-        // console.log(json_.children[i].children[j].word);
-        return {
-          neighbor: result.children[i].children[j].neighborhood,
-          attendee: result.children[i].children[j].attendee
-        };
-      }
-    }
+    let json_ = await response.json();
+
+    // let commit = await json_.children.forEach(element => {
+    //   data.children.push(element);
+    //   getReady().then(function(result) {
+    //     for (var i = 0; i < data.children.length; i++) {
+    //       for (var j = 0; j < data.children[i].children.length; j++) {
+    //         if (data.children[i].children[j].neighbor === result.neighbor) {
+    //           data.children[i].children[j].word = result.word;
+    //         } else data.children[i].children[j].word = ["a...", "b..."];
+    //       }
+    //     }
+    //   });
+    // });
+    // console.log(json_.children);
+    return json_.children;
+    // return data;
   } else {
     console.log("HTTP-Error_1: " + response.status);
   }
 }
 
-//neighborhood_data를 보내는 곳
-// //jihyun server에서 가져오는 데이터
-// //Neighborhood와 word를 비교해서 맞는 word를 리턴해준다.
-
-export async function getReady(YEAR, MONTH, DAY, neighborhood) {
+export async function getReady() {
   let response = await fetch(
     `http://52.42.89.244:5000/outputs?neighbor=unknown`
   );
 
   if (response.ok) {
     let json = await response.json();
-    let word = json.children;
-    let string_word = JSON.stringify(word);
-    //console.log(string_word);
-    // getData_post(YEAR, MONTH, DAY, word);
+    let word_list = [];
+    let data;
+    for (var i = 0; i < json.children[0].word.length; i++) {
+      word_list.push(json.children[0].word[i][0]);
+      data = { neighbor: "unknown", word: word_list };
+    }
+
+    // console.log(`${neighborhood}`, word_list);
+    // console.log(data);
+    return data;
+  } else {
+    console.log("bad access");
   }
 }
 
-// export async function getData_post(YEAR, MONTH, DAY, word) {
-//   let response = await fetch(
-//     `https://staging.projectamelia.ai/pusherman/respectable_compromises/neighborhoods?showdate=${YEAR}-${MONTH}-${DAY}`,
-//     {
-//       method: "POST",
-//       // mode: "no-cors",
-//       headers: {
-//         "Content-Type": "application/json;charset=utf-8"
-//       },
-//       body: word
-//     }
-//   ); //should be changed after launching the show
-
-//   if (response.ok) {
-//     let json = await response.json();
-//     console.log(json);
-//   } else {
-//     console.log("HTTP-Error_1: " + response.status);
-//   }
-// }
-
-export function retrieveAllUserData() {
-  //Pusherman에서 API받아옴
-
-  getData("2019", "08", "20");
+export async function sendData(neighbor) {
+  const word2vec = {
+    neighbor: neighbor
+  };
+  fetch(`http://52.42.89.244:5000/estimator`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(word2vec)
+  }).then(res => {
+    return res.json();
+  });
+  // .then(words => {
+  //   let word_list = [];
+  //   word_list.push(words);
+  //   console.log(word_list);
+  //   return word_list;
+  //   // this.setState({ words: words });
+  // });
 }
+
+// export async function getNeighbor() {}
+
+// export function retrieveAllUserData() {
+//   //Pusherman에서 API받아옴
+
+//   getData("2019", "08", "20");
+//   // console.log(data);
+//   // return data;
+// }

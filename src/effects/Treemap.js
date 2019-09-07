@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import d3 from "d3";
 import "./Treemap.scss";
-//import data from "../data.json";
+import data from "../data.json";
 import EffectMain from "../effects/EffectMain";
 import ReactDOM from "react-dom";
 import AmeliaDialogue from "../effects/AmeliaDialogue";
 import WorldMap_2 from "./WorldMap_2";
-import { retrieveAllUserData } from "../Backend/GetJson_test";
+import { retrieveAllUserData } from "../Backend/GetData";
 
 export class Treemap extends React.Component {
   constructor(props) {
@@ -15,48 +15,53 @@ export class Treemap extends React.Component {
       citys: [],
       neighbor: {},
       nowDialoge: "",
-      showText: false,
-      year: "2019",
-      month: "09",
-      day: "10",
-      attendee: 1
+      showText: false
     };
-
-    // this.gettreeData = this.gettreeData.bind(this);
+    // this.getToken = this.getToken.bind(this);
   }
 
-  // _get() {
-  //   fetch(
-  //     `https://staging.projectamelia.ai/pusherman/respectable_compromises/neighborhoods?showdate=${this.state.year}-${this.state.month}-${this.state.day}`
-  //   )
-  //     // fetch(`https://respectable-compromises.firebaseio.com//neighborhood.json`)
-  //     .then(res => {
-  //       if (res.status != 200) {
-  //         throw new Error(res.statusText);
-  //       }
-  //       return res.json();
-  //     })
-  //     .then((neighborhood, attendee) => {
-  //       this.setState({
-  //         citys: Object.keys(neighborhood),
-  //         neighbor: neighborhood,
-  //         attendee: attendee
-  //       });
-  //     });
-  // }
+  //   changing = () => {
+  //     let num = 0;
+  //     setInterval(() => {
+  //       this.setState({ nowDialoge: this.state.ameliaDialoge[num % 6] });
+  //       num++;
+  //     }, 5000);
+  //   };
 
-  // async gettreeData() {
-  //   await retrieveAllUserData();
-  // }
+  _get() {
+    fetch(
+      `https://staging.projectamelia.ai/pusherman/respectable_compromises/neighborhoods?showdate=${this.state.year}-${this.state.month}-${this.state.day}`
+    )
+      // fetch(`https://respectable-compromises.firebaseio.com//neighborhood.json`)
+      .then(res => {
+        if (res.status != 200) {
+          throw new Error(res.statusText);
+        }
+        return res.json();
+      })
+      .then((neighborhood, attendee) => {
+        this.setState({
+          citys: Object.keys(neighborhood),
+          neighbor: neighborhood,
+          attendee: attendee
+        });
+      });
+  }
 
   componentDidMount() {
-    // var data = this.gettreeData();
-    var data = retrieveAllUserData();
-    console.log(data.children.length);
-
     setTimeout(() => {
       this.setState({ showText: true });
     }, 40000);
+
+    // var data1;
+    // d3.json("https://amelia-test-df1b2.firebaseio.com/children.json", function(
+    //   json
+    // ) {
+    //   data1 = json; // console.log(data1[0].children[0].neighbor);
+    // });
+
+    // let num = 0;
+    // this.changing();
 
     function position() {
       this.style("left", function(d) {
@@ -134,6 +139,32 @@ export class Treemap extends React.Component {
 
     opacityRepeat();
 
+    // function opacityRepeat() {
+    //   var repeat1 = d3.selectAll(".node");
+    //   repeat();
+
+    //   function repeat() {
+    //     repeat1
+    //       .style("opacity", "0.2")
+    //       .transition()
+    //       .duration(3000)
+    //       .ease("linear")
+    //       .delay(function(d, i) {
+    //         return i * 300;
+    //       })
+    //       .style("opacity", ".85")
+    //       .transition()
+    //       .duration(3000)
+    //       .style("opacity", "0.2")
+    //       .transition()
+    //       .duration(3000)
+    //       .style("opacity", ".9")
+    //       .each("end", repeat);
+    //   }
+    // }
+
+    // opacityRepeat();
+
     const effectNum = 9;
     let divs = [];
     let effect = [];
@@ -146,8 +177,7 @@ export class Treemap extends React.Component {
           return (
             <EffectMain
               attendee={data.children[cityNum].children[neigborNum].neighbor}
-              // names={data.children[cityNum].children[neigborNum].names}
-              names={["sam", "sam"]}
+              names={data.children[cityNum].children[neigborNum].names}
               word={data.children[cityNum].children[neigborNum].word}
             />
           );

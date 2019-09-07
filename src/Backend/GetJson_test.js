@@ -1,21 +1,7 @@
 import { async } from "q";
 // // TODO: year-month-day 공연 날짜에 맞춰 받아올 것
 
-var data = {
-  main: "all",
-  children: [
-    {
-      city: "pittsburg",
-      children: [
-        {
-          neighbor: "a",
-          attendee: 13,
-          word: ["love"]
-        }
-      ]
-    }
-  ]
-};
+var copy;
 
 export async function getData(YEAR, MONTH, DAY) {
   let response = await fetch(
@@ -23,6 +9,21 @@ export async function getData(YEAR, MONTH, DAY) {
   ); //should be changed after launching the show
 
   if (response.ok) {
+    var data = {
+      main: "all",
+      children: [
+        // {
+        //   city: "pittsburg",
+        //   children: [
+        //     {
+        //       neighbor: "a",
+        //       attendee: 13,
+        //       word: ["love"]
+        //     }
+        //   ]
+        // }
+      ]
+    };
     //Json 파일로 parsing
     let json_ = await response.json();
     //각 array에 word array를 붙여서 리턴 --> data.json파일로 만들기 위해
@@ -44,8 +45,8 @@ export async function getData(YEAR, MONTH, DAY) {
         });
       }
     }
-    // console.log(obj.children);
-    return data.children;
+
+    return [data.children, data];
   } else {
     console.log("HTTP-Error_1: " + response.status);
   }
@@ -54,7 +55,7 @@ export async function getData(YEAR, MONTH, DAY) {
 // //jihyun server에서 가져오는 데이터
 // //Neighborhood와 word를 비교해서 맞는 word를 리턴해준다.
 
-export async function getReady(neighborhood) {
+export async function getReady(neighborhood, data) {
   let response = await fetch(
     `http://52.42.89.244:5000/outputs?neighbor=unknown`
   );
@@ -66,7 +67,7 @@ export async function getReady(neighborhood) {
       word_list.push(json.children[0].word[i][0]);
     }
     // console.log(`${neighborhood}`, word_list);
-    return getNeighbor(neighborhood, word_list);
+    return getNeighbor(neighborhood, word_list, data);
   }
 }
 
@@ -93,7 +94,7 @@ export async function sendData(neighborhood) {
   }
 }
 
-export async function getNeighbor(neighborhood, elements) {
+export async function getNeighbor(neighborhood, elements, data) {
   // console.log(`${neighborhood}`, elements);
   //console.log(obj.children.length);
   for (var i = 0; i < data.children.length; i++) {
@@ -101,7 +102,7 @@ export async function getNeighbor(neighborhood, elements) {
       data.children[i].children[0].word.push(elements);
     }
   }
-
+  //console.log(data);
   return data;
 }
 
@@ -109,8 +110,10 @@ export function retrieveAllUserData() {
   //Pusherman에서 API받아옴
 
   getData("2019", "08", "20").then(elements => {
-    elements.forEach(element => getReady(element.children[0].neighbor));
+    elements[0].forEach(element =>
+      getReady(element.children[0].neighbor, elements[1])
+    );
   });
-  console.log(data.children);
-  return data;
+  // console.log(data);
+  // return data;
 }

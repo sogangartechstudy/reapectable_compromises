@@ -4,18 +4,22 @@ import "./ScreenTest.scss";
 import Treemap from "../effects/Treemap";
 import ScreenWords from "../effects/ScreenWords";
 import ScreenNames from "../effects/ScreenNames";
-import data from "../data.json";
+//import data from "../data.json";
 import EffectMain from "../effects/EffectMain";
 import ReactDOM from "react-dom";
 import $ from "jquery";
 import { readlink } from "fs";
 import { callbackify } from "util";
 import AmeliaDialogue from "../effects/AmeliaDialogue";
+import { getData } from "../Backend/GetJson";
 
 export class ScreenTest extends React.Component {
   constructor(props) {
     super(props);
     this.second = React.createRef();
+    this.state = {
+      data: null
+    };
   }
 
   componentDidMount() {
@@ -33,14 +37,14 @@ export class ScreenTest extends React.Component {
       $("div[id='stage1'").css({
         display: "none"
       });
-    }, 1000); //64000
+    }, 64000); //64000
 
     setTimeout(() => {
       ReactDOM.render(<ScreenNames />, document.querySelector("#stage3"));
       $("div[id='stage2'").css({
         display: "none"
       });
-    }, 131000); //80000
+    }, 130000); //80000
 
     setTimeout(() => {
       window.location.reload();

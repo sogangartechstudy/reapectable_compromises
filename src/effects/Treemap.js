@@ -15,7 +15,8 @@ export class Treemap extends React.Component {
       citys: [],
       neighbor: {},
       nowDialoge: "",
-      showText: false
+      showText: false,
+      color: []
     };
     // this.getToken = this.getToken.bind(this);
   }
@@ -86,6 +87,10 @@ export class Treemap extends React.Component {
       width = win_w - margin.left - margin.right,
       height = win_h - margin.top - margin.bottom;
 
+    const random = (a, b) => {
+      return Math.floor(Math.random() * (b - a) + a);
+    };
+
     var treemap = d3.layout
       .treemap()
       .size([100, 100])
@@ -104,7 +109,7 @@ export class Treemap extends React.Component {
       .enter()
       .append("div")
       .attr("class", function(d, i) {
-        return "node node" + i;
+        return "node node" + i + " color" + random(1, 10);
       })
       .attr("id", function(d, i) {
         return d.neighbor;

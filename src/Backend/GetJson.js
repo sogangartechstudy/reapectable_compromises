@@ -3,7 +3,7 @@ import { async } from "q";
 
 export async function getData(YEAR, MONTH, DAY) {
   let response = await fetch(
-    `https://staging.projectamelia.ai/pusherman/respectable_compromises/neighborhoods?showdate=${YEAR}-${MONTH}-${DAY}`
+    `https://staging.projectamelia.ai/pusherman/respectable_compromises/neighborhoods?showdate=2019-08-17&token=jdkfsniu43rf8329rfiewj382ru398ewwfu98a3rliuh3roiq3298fydasd32riu32hrd3298dh938fh2380rfhiufq`
   ); //should be changed after launching the show
 
   if (response.ok) {

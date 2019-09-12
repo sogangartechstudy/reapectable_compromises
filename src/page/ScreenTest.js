@@ -36,7 +36,7 @@ export class ScreenTest extends React.Component {
       $("div[id='stage1'").css({
         display: "none"
       });
-    }, 64000); //64000
+    }, 1000); //64000
 
     setTimeout(() => {
       ReactDOM.render(<ScreenNames />, document.querySelector("#stage3"));

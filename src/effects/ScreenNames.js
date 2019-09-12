@@ -20,7 +20,7 @@ export class ScreenNames extends React.Component {
 
     getNeighbor().then(data => {
       data = data[0];
-      console.log(JSON.parse(JSON.stringify(data)));
+
       // Neighborhood Name List
 
       var nameArray = [];

@@ -81,9 +81,18 @@ export class Treemap extends React.Component {
         .attr("class", function(d, i) {
           return "node node" + i + " color" + random(1, 10);
         })
+
         .attr("id", function(d, i) {
           //TODO : 중복값 생기면 겹쳐서 보임
-          return d.state;
+          if (d.neighborhood === "unknown") {
+            if (d.state === "unknown") {
+              return d.country;
+            } else {
+              return d.state;
+            }
+          } else {
+            return d.neighborhood;
+          }
         })
         .call(position)
         .style("z-index", function(d, i) {
@@ -118,7 +127,11 @@ export class Treemap extends React.Component {
             return (
               <EffectMain
                 //TODO : 중복값 생기면 겹쳐서 보임
-                attendee={data.children[cityNum].children[neigborNum].state}
+                neighborhood={
+                  data.children[cityNum].children[neigborNum].neighborhood
+                }
+                state={data.children[cityNum].children[neigborNum].state}
+                country={data.children[cityNum].children[neigborNum].country}
                 names={data.children[cityNum].children[neigborNum].names}
                 word={data.children[cityNum].children[neigborNum].word}
               />
@@ -130,10 +143,17 @@ export class Treemap extends React.Component {
 
       for (let i = 0; i < data.children.length; i++) {
         for (let j = 0; j < data.children[i].children.length; j++) {
-          divs.push(
-            //TODO : 중복값 생기면 겹쳐서 보임
-            document.getElementById(data.children[i].children[j].state)
-          );
+          var n = data.children[i].children[j].neighborhood;
+          if (data.children[i].children[j].neighborhood === "unknown") {
+            if (data.children[i].children[j].state === "unknown") {
+              n = data.children[i].children[j].country;
+            } else {
+              n = data.children[i].children[j].state;
+            }
+          } else {
+            n = data.children[i].children[j].neighborhood;
+          }
+          divs.push(document.getElementById(n));
           effect.push(effectAdd(i, j, effectNum));
         }
       }

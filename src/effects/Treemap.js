@@ -1,52 +1,26 @@
 import React, { Component } from "react";
 import d3 from "d3";
 import "./Treemap.scss";
-import data from "../data.json";
+//import data from "../data.json";
 import EffectMain from "../effects/EffectMain";
 import ReactDOM from "react-dom";
 import AmeliaDialogue from "../effects/AmeliaDialogue";
 import WorldMap_2 from "./WorldMap_2";
-import { retrieveAllUserData } from "../Backend/GetData";
+import { getData, getReady, sendData, getNeighbor } from "../Backend/GetJson";
 
 export class Treemap extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       citys: [],
+      state: {},
       neighbor: {},
       nowDialoge: "",
       showText: false,
-      color: []
+      color: [],
+      word: []
     };
     // this.getToken = this.getToken.bind(this);
-  }
-
-  //   changing = () => {
-  //     let num = 0;
-  //     setInterval(() => {
-  //       this.setState({ nowDialoge: this.state.ameliaDialoge[num % 6] });
-  //       num++;
-  //     }, 5000);
-  //   };
-
-  _get() {
-    fetch(
-      `https://staging.projectamelia.ai/pusherman/respectable_compromises/neighborhoods?showdate=${this.state.year}-${this.state.month}-${this.state.day}`
-    )
-      // fetch(`https://respectable-compromises.firebaseio.com//neighborhood.json`)
-      .then(res => {
-        if (res.status != 200) {
-          throw new Error(res.statusText);
-        }
-        return res.json();
-      })
-      .then((neighborhood, attendee) => {
-        this.setState({
-          citys: Object.keys(neighborhood),
-          neighbor: neighborhood,
-          attendee: attendee
-        });
-      });
   }
 
   componentDidMount() {
@@ -54,155 +28,120 @@ export class Treemap extends React.Component {
       this.setState({ showText: true });
     }, 40000);
 
-    // var data1;
-    // d3.json("https://amelia-test-df1b2.firebaseio.com/children.json", function(
-    //   json
-    // ) {
-    //   data1 = json; // console.log(data1[0].children[0].neighbor);
-    // });
-
-    // let num = 0;
-    // this.changing();
-
-    function position() {
-      this.style("left", function(d) {
-        return d.x + "%";
-      })
-        .style("top", function(d) {
-          return d.y + "%";
-        })
-        .style("width", function(d) {
-          return d.dx - 1.2 + "%";
-        })
-        .style("height", function(d) {
-          return d.dy - 1.2 + "%";
-        });
-    }
-
-    //가로 세로 길이
-    var win_w = window.innerWidth;
-    var win_h = window.innerHeight;
-
-    var margin = { top: 0, right: 0, bottom: 0, left: 0 },
-      width = win_w - margin.left - margin.right,
-      height = win_h - margin.top - margin.bottom;
-
-    const random = (a, b) => {
-      return Math.floor(Math.random() * (b - a) + a);
-    };
-
-    var treemap = d3.layout
-      .treemap()
-      .size([100, 100])
-      //.padding(0)
-      .value(function(d) {
-        return d.attendee;
-      })
-      .sort(() => {
-        return Math.random() - 0.5;
-      });
     var div = d3.select(".treemap");
-    var node = div
-      .datum(data)
-      .selectAll(".node")
-      .data(treemap.nodes)
-      .enter()
-      .append("div")
-      .attr("class", function(d, i) {
-        return "node node" + i + " color" + random(1, 10);
-      })
-      .attr("id", function(d, i) {
-        return d.neighbor;
-      })
-      .call(position)
-      .style("z-index", function(d, i) {
-        return -i;
-      });
+    // var final = {};
+    getNeighbor().then(data => {
+      data = data[0];
+      console.log(JSON.parse(JSON.stringify(data)));
 
-    function opacityRepeat() {
-      d3.selectAll(".node")
-        .style("opacity", "0")
-        .transition()
-        .duration(5000) //바꿀 것
-        .ease("linear")
-        .delay(function(d, i) {
-          return i * 600;
+      function position() {
+        this.style("left", function(d) {
+          return d.x + "%";
         })
-        .style("opacity", "1")
-        .transition()
-        .duration(60000)
-        .style("opacity", "0");
-      // .transition()
-      // .duration(20000) //바꿀 것
-      // .ease("linear")
-      // .style("opacity", "0")
-      // .transition()
-      // .duration(30000) //바꿀 것
-      // .ease("linear");
-      // .style("opacity", "0")
-    }
+          .style("top", function(d) {
+            return d.y + "%";
+          })
+          .style("width", function(d) {
+            return d.dx - 1.2 + "%";
+          })
+          .style("height", function(d) {
+            return d.dy - 1.2 + "%";
+          });
+      }
 
-    opacityRepeat();
+      //가로 세로 길이
+      var win_w = window.innerWidth;
+      var win_h = window.innerHeight;
 
-    // function opacityRepeat() {
-    //   var repeat1 = d3.selectAll(".node");
-    //   repeat();
+      var margin = { top: 0, right: 0, bottom: 0, left: 0 },
+        width = win_w - margin.left - margin.right,
+        height = win_h - margin.top - margin.bottom;
 
-    //   function repeat() {
-    //     repeat1
-    //       .style("opacity", "0.2")
-    //       .transition()
-    //       .duration(3000)
-    //       .ease("linear")
-    //       .delay(function(d, i) {
-    //         return i * 300;
-    //       })
-    //       .style("opacity", ".85")
-    //       .transition()
-    //       .duration(3000)
-    //       .style("opacity", "0.2")
-    //       .transition()
-    //       .duration(3000)
-    //       .style("opacity", ".9")
-    //       .each("end", repeat);
-    //   }
-    // }
+      const random = (a, b) => {
+        return Math.floor(Math.random() * (b - a) + a);
+      };
 
-    // opacityRepeat();
+      var treemap = d3.layout
+        .treemap()
+        .size([100, 100])
+        //.padding(0)
+        .value(function(d) {
+          return d.attendee;
+        })
+        .sort(() => {
+          return Math.random() - 0.5;
+        });
 
-    const effectNum = 9;
-    let divs = [];
-    let effect = [];
+      var node = div
+        .datum(data)
+        .selectAll(".node")
+        .data(treemap.nodes)
+        .enter()
+        .append("div")
+        .attr("class", function(d, i) {
+          return "node node" + i + " color" + random(1, 10);
+        })
+        .attr("id", function(d, i) {
+          //TODO : 중복값 생기면 겹쳐서 보임
+          return d.state;
+        })
+        .call(position)
+        .style("z-index", function(d, i) {
+          return -i;
+        });
 
-    //랜덤으로 안돌게 일단 수정
-    let effectAdd = (cityNum, neigborNum, num) => {
-      let randomNum = 8;
-      switch (randomNum) {
-        case 8:
-          return (
-            <EffectMain
-              attendee={data.children[cityNum].children[neigborNum].neighbor}
-              names={data.children[cityNum].children[neigborNum].names}
-              word={data.children[cityNum].children[neigborNum].word}
-            />
+      function opacityRepeat() {
+        d3.selectAll(".node")
+          .style("opacity", "0")
+          .transition()
+          .duration(5000) //바꿀 것
+          .ease("linear")
+          .delay(function(d, i) {
+            return i * 600;
+          })
+          .style("opacity", "1")
+          .transition()
+          .duration(60000)
+          .style("opacity", "0");
+      }
+
+      opacityRepeat();
+
+      const effectNum = 9;
+      let divs = [];
+      let effect = [];
+
+      let effectAdd = (cityNum, neigborNum) => {
+        let randomNum = 8;
+        switch (randomNum) {
+          case 8:
+            return (
+              <EffectMain
+                //TODO : 중복값 생기면 겹쳐서 보임
+                attendee={data.children[cityNum].children[neigborNum].state}
+                names={data.children[cityNum].children[neigborNum].names}
+                word={data.children[cityNum].children[neigborNum].word}
+              />
+            );
+            break;
+        }
+        return;
+      };
+
+      for (let i = 0; i < data.children.length; i++) {
+        for (let j = 0; j < data.children[i].children.length; j++) {
+          divs.push(
+            //TODO : 중복값 생기면 겹쳐서 보임
+            document.getElementById(data.children[i].children[j].state)
           );
-          break;
+          effect.push(effectAdd(i, j, effectNum));
+        }
       }
-      return;
-    };
 
-    for (let i = 0; i < data.children.length; i++) {
-      for (let j = 0; j < data.children[i].children.length; j++) {
-        divs.push(
-          document.getElementById(data.children[i].children[j].neighbor)
-        );
-        effect.push(effectAdd(i, j, effectNum));
+      for (let i = 0; i < divs.length; i++) {
+        ReactDOM.render(effect[i], divs[i]);
       }
-    }
-
-    for (let i = 0; i < divs.length; i++) {
-      ReactDOM.render(effect[i], divs[i]);
-    }
+    });
   }
 
   render() {
@@ -211,10 +150,7 @@ export class Treemap extends React.Component {
     return (
       <div id="screenTreemap">
         <WorldMap_2 />
-        <div id="message">
-          {showText && <AmeliaDialogue />}
-          {/* <p>{this.state.nowDialoge}</p> */}
-        </div>
+        <div id="message">{showText && <AmeliaDialogue />}</div>
         <div className="treemap" />
       </div>
     );

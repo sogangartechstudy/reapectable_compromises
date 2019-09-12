@@ -3,7 +3,7 @@ import "./ScreenNames.scss";
 //import data from "../data.json";
 import $ from "jquery";
 import WorldMap from "./WorldMap";
-import { getData, getReady, sendData } from "../Backend/GetJson";
+import { getNeighbor } from "../Backend/GetJson";
 
 export class ScreenNames extends React.Component {
   constructor(props) {
@@ -18,28 +18,24 @@ export class ScreenNames extends React.Component {
       this.setState({ showText: true });
     }, 5000);
 
-    getData("2019", "08", "20").then(metadata => {
-      console.log(metadata[1].children.length);
-      console.log(metadata.length);
+    getNeighbor().then(data => {
+      data = data[0];
+      console.log(JSON.parse(JSON.stringify(data)));
+      // Neighborhood Name List
 
       var nameArray = [];
-
-      for (let i = 0; i < metadata.length; i++) {
-        for (let j = 0; j < metadata[i].children.length; j++) {
-          // for (
-          //   let k = 0;
-          //   k < metadata.children[i].children[j].names.length;
-          //   k++
-          // ) {
-          //   nameArray.push(metadata.children[i].children[j].names[k]);
-          // }
+      for (let i = 0; i < data.children.length; i++) {
+        for (let j = 0; j < data.children[i].children.length; j++) {
+          for (let k = 0; k < data.children[i].children[j].names.length; k++) {
+            nameArray.push(data.children[i].children[j].names[k]);
+          }
         }
       }
 
       var attendeeArr = [];
-      for (let i = 0; i < metadata.length; i++) {
-        for (let j = 0; j < metadata[i].children.length; j++) {
-          attendeeArr.push(metadata[i].children[j].attendee);
+      for (let i = 0; i < data.children.length; i++) {
+        for (let j = 0; j < data.children[i].children.length; j++) {
+          attendeeArr.push(data.children[i].children[j].attendee);
         }
       }
 
@@ -437,8 +433,8 @@ export class ScreenNames extends React.Component {
         enchainerAnim();
         dimensionner();
         relancer();
-      }); // window load listener
-    });
+      });
+    }); // window load listener
   }
 
   render() {

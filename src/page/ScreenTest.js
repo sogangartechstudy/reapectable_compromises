@@ -11,7 +11,6 @@ import $ from "jquery";
 import { readlink } from "fs";
 import { callbackify } from "util";
 import AmeliaDialogue from "../effects/AmeliaDialogue";
-import { getData } from "../Backend/GetJson";
 
 export class ScreenTest extends React.Component {
   constructor(props) {

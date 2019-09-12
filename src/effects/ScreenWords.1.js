@@ -26,7 +26,8 @@
 //           children: []
 //         };
 
-//         let i = 0;
+//         let index = 0;
+//         let word_index = 0;
 //         // console.log("metadata:", metadata);
 //         metadata.forEach(element => {
 //           data.children.push(element);
@@ -37,17 +38,33 @@
 
 //           element.children.forEach(result => {
 //             result.word = [];
-//             // console.log(result);
+
+//             $(".neighbors").each(function(index) {
+//               $(this).attr({
+//                 id: "neighbor_" + index
+//               });
+//             });
+
+//             $("<div></div>")
+//               .appendTo($("#neighbor_" + index))
+//               .attr("class", "neighborName")
+//               .text(result.neighborhood);
+
+//             $(".neighborName").each(function(index) {
+//               $(this).attr({
+//                 id: "neighborId_" + index
+//               });
+//             });
 
 //             //실제 implementation
-//             // sendData(result.neighborhood).then(wordData => {
-//             //   var neighborArray = [];
-//             // });
-//             getReady()
+
+//             var neighborArray = [];
+//             var wordsArray = [];
+
+//             sendData(result.neighborhood)
 //               .then(result_ => {
 //                 // console.log("result: ", result, "element: ", element);
-//                 var neighborArray = [];
-//                 var wordsArray = [];
+
 //                 if (result.neighborhood == result_.neighbor) {
 //                   //console.log("word", result_.word);
 //                   result.word.push(result_.word);
@@ -56,71 +73,56 @@
 //                 } else {
 //                   neighborArray.push(result.neighborhood);
 //                   result.word.push("nothing is here");
-//                   wordsArray.push("nothing is here");
+//                   wordsArray.push([
+//                     "nothing is here",
+//                     "nothing is here",
+//                     "nothing is here",
+//                     "nothing is here",
+//                     "nothing is here",
+//                     "nothing is here",
+//                     "nothing is here",
+//                     "nothing is here",
+//                     "nothing is here",
+//                     "nothing is here"
+//                   ]);
 //                 }
 //                 var returnword = {
 //                   wordsArray: wordsArray,
 //                   neighborArray: neighborArray
 //                 };
+
 //                 // console.log(returnword);
 //                 return returnword;
 //               })
 //               .then(commit => {
-//                 // $(document).ready(function() {
-//                 //   var width = $(window).width();
-//                 //   var height = $(window).height();
+//                 // console.log(commit.wordsArray);
+//                 commit.wordsArray.forEach(word_ => {
+//                   word_.forEach(word_1 => {
+//                     // console.log(word_index);
 
-//                 // $("<div></div>")
-//                 //   .appendTo($("#FeatureWords"))
-//                 //   .attr("class", "neighbors");
-
-//                 $(".neighbors").each(function(index) {
-//                   $(this).attr({
-//                     id: "neighbor_" + index
+//                     var left = Math.floor(Math.random() * (width - 100));
+//                     var top = Math.floor(Math.random() * (height - 100));
+//                     $("<div></div>")
+//                       .appendTo($("#neighborId_" + word_index))
+//                       .attr("class", "words")
+//                       .text(word_1)
+//                       .css({
+//                         left: left,
+//                         top: top,
+//                         // right: right,
+//                         // bottom: bottom,
+//                         "z-index": 300,
+//                         "font-size": Math.floor(Math.random() * 330) + "%"
+//                       });
 //                   });
 //                 });
-//                 $(".neighbors").each(function(index) {
-//                   $("<div></div>")
-//                     .appendTo($("#neighbor_" + index))
-//                     .attr("class", "neighborName")
-//                     .text(commit.neighborArray);
-//                 });
-
-//                 for (var i = 0; i <= commit.wordsArray.length; i++) {
-//                   var left = Math.floor(Math.random() * (width - 100));
-//                   var top = Math.floor(Math.random() * (height - 100));
-//                   // var right = Math.floor(Math.random() * (width + 100));
-//                   // var bottom = Math.floor(Math.random() * (height + 100));
-
-//                   // Append div class named 'words' to div id named 'neighbor_(num)'
-//                   $("<div></div>")
-//                     .appendTo($("#neighbor_" + parseInt(i / 10)))
-//                     .attr("class", function(j) {
-//                       return "words";
-//                     })
-//                     .text(commit.wordsArray)
-//                     .css({
-//                       left: left,
-//                       top: top,
-//                       // right: right,
-//                       // bottom: bottom,
-
-//                       "z-index": 300,
-//                       "font-size": Math.floor(Math.random() * 330) + "%"
-//                     });
-//                 }
 
 //                 // Add id attribute named 'neighborId_(num)' to div class named 'neighborName'
-//                 $(".neighborName").each(function(index) {
-//                   $(this).attr({
-//                     id: "neighborId_" + index
-//                   });
-//                 });
 
 //                 // Add id attribute named 'wordNode_(num)' to div class named 'words'
-//                 $(".words").each(function(index) {
+//                 $(".words").each(function(word_index) {
 //                   $(this).attr({
-//                     id: "wordNode_" + parseInt(index / 10)
+//                     id: "wordNode_" + parseInt(word_index / 10)
 //                   });
 //                 });
 
@@ -183,17 +185,12 @@
 
 //                   node += 1;
 //                 }, 5000); //default: 8000
-
-//                 commit.neighborArray.forEach(divattach => {
-//                   console.log(divattach);
-//                 });
-//                 commit.wordsArray.forEach(wordEach => {
-//                   console.log(wordEach);
-//                 });
+//                 word_index++;
 //                 //default: 8000
 //               });
 //             // this.changing();
 //           });
+//           index++;
 //         });
 //       });
 //     });

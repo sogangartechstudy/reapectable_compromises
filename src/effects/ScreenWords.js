@@ -3,7 +3,6 @@ import "./ScreenWords.scss";
 import $ from "jquery";
 import Fade from "react-reveal/Fade";
 import WorldMap_1 from "./WorldMap_1";
-import AmeliaDialogue from "../effects/AmeliaDialogue";
 import { getNeighbor } from "../Backend/GetJson";
 
 export class ScreenWords extends React.Component {

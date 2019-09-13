@@ -127,7 +127,7 @@ export class ScreenNames extends React.Component {
         Animable.prototype.lancerAnimation = function() {
           this.etatAnimation = 0;
           this.typeAnimation = alea(0, 3, true);
-          if (this.texte == "Respectable Compromises") this.typeAnimation = 3;
+          if (this.texte === "Respectable Compromises") this.typeAnimation = 3;
           this.debut = present;
 
           switch (this.typeAnimation) {

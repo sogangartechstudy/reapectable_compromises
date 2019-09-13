@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import d3 from "d3";
 import "./Treemap.scss";
 //import data from "../data.json";
@@ -6,7 +6,7 @@ import EffectMain from "../effects/EffectMain";
 import ReactDOM from "react-dom";
 import AmeliaDialogue from "../effects/AmeliaDialogue";
 import WorldMap_2 from "./WorldMap_2";
-import { getData, getReady, sendData, getNeighbor } from "../Backend/GetJson";
+import { getNeighbor } from "../Backend/GetJson";
 
 export class Treemap extends React.Component {
   constructor(props) {

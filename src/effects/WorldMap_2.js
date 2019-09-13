@@ -159,7 +159,7 @@ class WorldMap_2 extends Component {
                   d={geoPath().projection(this.projection())(d)}
                   className="country_2"
                   fill={"black"}
-                  stroke-width={10}
+                  strokeWidth={10}
                   // fill={`rgba(233,233,233,${(1 / this.state.worldData.length) *
                   //   i})`}
                   opacity={this.state.opacity}

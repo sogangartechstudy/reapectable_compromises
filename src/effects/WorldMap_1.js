@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { geoGraticule, geoDistance, geoOrthographic, geoPath } from "d3-geo";
+import { geoOrthographic, geoPath } from "d3-geo";
 import { feature } from "topojson-client";
 import "./WorldMap_1.scss";
 
@@ -12,6 +12,8 @@ class WorldMap_1 extends Component {
       distance: 0,
       words: [],
       rotation: 0,
+      w: window.innerWidth,
+      h: window.innerHeight,
       worldData: [],
       cities: [
         {
@@ -40,7 +42,7 @@ class WorldMap_1 extends Component {
   projection() {
     return geoOrthographic()
       .scale(600)
-      .translate([1782 / 2, 1250 / 2])
+      .translate([this.state.w / 2, this.state.h / 2])
       .rotate([this.state.rotation]);
   }
 
@@ -104,9 +106,9 @@ class WorldMap_1 extends Component {
       <div id="screenMap">
         <div className="geomap">
           <svg
-            width={window.innerWidth}
-            height={window.innerHeight}
-            viewBox="0 0 1782 1250"
+            width={this.state.w}
+            height={this.state.h}
+            viewBox={`0 0 ${this.state.w} ${this.state.h}`}
           >
             <g className="r">
               {this.state.worldData.map((d, i) => (
@@ -115,8 +117,8 @@ class WorldMap_1 extends Component {
                   d={geoPath().projection(this.projection())(d)}
                   className="country"
                   //fill={"black"}
-                  stroke-linejoin={"round"}
-                  stroke-width={0.5}
+                  strokeLinejoin={"round"}
+                  strokeWidth={0.5}
                   fill={`rgba(64,224,208,${(1 / this.state.worldData.length) *
                     i})`}
                   opacity={this.state.opacity}

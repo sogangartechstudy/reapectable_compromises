@@ -10,7 +10,7 @@ import ReactDOM from "react-dom";
 import $ from "jquery";
 import { readlink } from "fs";
 import { callbackify } from "util";
-import AmeliaDialogue from "../effects/AmeliaDialogue";
+import AmeliaDialogue_1 from "../effects/AmeliaDialogue_1";
 
 export class ScreenTest extends React.Component {
   constructor(props) {
@@ -22,14 +22,17 @@ export class ScreenTest extends React.Component {
   }
 
   componentDidMount() {
-    // ReactDOM.render(<AmeliaDialogue />, document.querySelector("#stage1"));
-    ReactDOM.render(<ScreenWords />, document.querySelector("#stage1"));
-    // setTimeout(() => {
-    //   ReactDOM.render(<ScreenWords />, document.querySelector("#stage1_1"));
-    //   $("div[id='stage1'").css({
-    //     display: "none"
-    //   });
-    // }, 30000); //100000
+    ReactDOM.render(
+      <AmeliaDialogue_1></AmeliaDialogue_1>,
+      document.querySelector("#stage0")
+    );
+    // ReactDOM.render(<ScreenWords />, document.querySelector("#stage1"));
+    setTimeout(() => {
+      ReactDOM.render(<ScreenWords />, document.querySelector("#stage1"));
+      $("div[id='stage0'").css({
+        display: "none"
+      });
+    }, 10000); //100000
 
     setTimeout(() => {
       ReactDOM.render(<Treemap />, document.querySelector("#stage2"));
@@ -47,7 +50,7 @@ export class ScreenTest extends React.Component {
 
     setTimeout(() => {
       window.location.reload();
-    }, 200000);
+    }, 200000); //200000
   }
 
   render() {
@@ -58,6 +61,7 @@ export class ScreenTest extends React.Component {
             src={process.env.PUBLIC_URL + "/images/Aura Logo Reverse_RGB.png"}
           />
         </div>
+        <div id="stage0" />
         <div id="stage1" />
         {/* <div id="stage1_1" /> */}
         <div id="stage2" />
